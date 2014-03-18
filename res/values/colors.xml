@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_tab_pressed">#66B9CC7C</color>
+    <color name="tab_highlight_blue">#B9CC7C</color>
+    <!-- 9fccff -->
+    <color name="HEADER_BLUE">#B9CC7C</color>
+    <color name="HEADER_DEFAULT">#ffffff</color>
+    <color name="ACTIONBAR_TEXT">#fff</color>
+    <color name="text_soft">#555555</color>
+    <color name="status_not_in">#FFD500</color>
+    <!-- 3fb3da -->
+    <!-- 8CBACE -->
+    <color name="ACTIONBAR_BACKGROUND">#568DA5</color>
+</resources>
