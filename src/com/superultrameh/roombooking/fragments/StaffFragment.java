@@ -100,7 +100,7 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 
 		@Override
 		public int getCount() {
-			return 3;
+			return 4;
 		}
 
 		@Override
@@ -108,13 +108,16 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 			switch (position) {
 			case 0:
 				return getActivity().getResources().getString(
-						R.string.title_staff_present);
+						R.string.label_home);
 			case 1:
 				return getActivity().getResources().getString(
-						R.string.title_staff_scheduled);
+						R.string.label_map);
 			case 2:
 				return getActivity().getResources().getString(
-						R.string.title_staff_dropped);
+						R.string.label_search);
+            case 3:
+                return getActivity().getResources().getString(
+                        R.string.label_bookings);
 			default:
 				return "";
 			}
