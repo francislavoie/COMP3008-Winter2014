@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_tab_pressed">#66B9CC7C</color>
-    <color name="tab_highlight_blue">#ff000000</color>
+    <color name="background_tab_pressed">#66cc141a</color>
+    <color name="tab_highlight_blue">#222222</color>
     <!-- 9fccff -->
-    <color name="HEADER_BLUE">#ff000000</color>
+    <color name="HEADER_BLUE">#222222</color>
     <color name="HEADER_DEFAULT">#ffffff</color>
     <color name="ACTIONBAR_TEXT">#fff</color>
-    <color name="text_soft">#ff8e8e8e</color>
+    <color name="text_soft">#848484</color>
     <color name="status_not_in">#FFD500</color>
     <!-- 3fb3da -->
     <!-- 8CBACE -->
-    <color name="ACTIONBAR_BACKGROUND">#ffa5211f</color>
+    <color name="ACTIONBAR_BACKGROUND">#AA2020</color>
 </resources>

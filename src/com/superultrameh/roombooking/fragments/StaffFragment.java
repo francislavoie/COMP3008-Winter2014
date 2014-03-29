@@ -1,11 +1,5 @@
 package com.superultrameh.roombooking.fragments;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
-import com.superultrameh.roombooking.R;
-import com.superultrameh.util.PagerSlidingTabStrip;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Fragment;
@@ -18,7 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.superultrameh.roombooking.R;
+import com.superultrameh.util.PagerSlidingTabStrip;
 
 public class StaffFragment extends Fragment implements ActionBar.TabListener {
 
@@ -32,11 +28,11 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 				false);
 
 		// setup date
-		TextView dateText = (TextView) rootView.findViewById(R.id.staffDate);
-		long date = System.currentTimeMillis();
-		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy ", Locale.getDefault());
-		String dateString = sdf.format(date); 
-		dateText.setText(dateString);
+//		TextView dateText = (TextView) rootView.findViewById(R.id.staffDate);
+//		long date = System.currentTimeMillis();
+//		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy ", Locale.getDefault());
+//		String dateString = sdf.format(date);
+//		dateText.setText(dateString);
 		
 		// setup pager and adapter
 		mAdapter = new StaffPagerAdapter(getFragmentManager());
