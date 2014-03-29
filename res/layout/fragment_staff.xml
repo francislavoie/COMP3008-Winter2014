@@ -13,7 +13,7 @@
         android:background="@color/HEADER_BLUE"
         android:textColor="#555555" />
 
-    <com.bluink.util.PagerSlidingTabStrip
+    <com.superultrameh.util.PagerSlidingTabStrip
         android:id="@+id/staffPagerTabs"
         android:layout_width="match_parent"
         android:layout_height="48dp" />

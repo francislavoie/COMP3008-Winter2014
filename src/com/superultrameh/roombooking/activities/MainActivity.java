@@ -1,12 +1,12 @@
-package com.bluink.shiftitmanager.activities;
+package com.superultrameh.roombooking.activities;
 
-import com.bluink.shiftitmanager.R;
-import com.bluink.shiftitmanager.fragments.AlertsFragment;
-import com.bluink.shiftitmanager.fragments.ApproveTradesFragment;
-import com.bluink.shiftitmanager.fragments.MessageStaffFragment;
-import com.bluink.shiftitmanager.fragments.SettingsFragment;
-import com.bluink.shiftitmanager.fragments.StaffFragment;
-import com.bluink.shiftitmanager.fragments.TradeZoneFragment;
+import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.fragments.AlertsFragment;
+import com.superultrameh.roombooking.fragments.ApproveTradesFragment;
+import com.superultrameh.roombooking.fragments.MessageStaffFragment;
+import com.superultrameh.roombooking.fragments.SettingsFragment;
+import com.superultrameh.roombooking.fragments.StaffFragment;
+import com.superultrameh.roombooking.fragments.TradeZoneFragment;
 
 import android.os.Bundle;
 import android.app.Activity;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bluink.util;
+package com.superultrameh.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -41,7 +41,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-import com.bluink.shiftitmanager.R;
+import com.superultrameh.roombooking.R;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 

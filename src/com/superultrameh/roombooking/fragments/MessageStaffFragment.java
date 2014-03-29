@@ -1,6 +1,6 @@
-package com.bluink.shiftitmanager.fragments;
+package com.superultrameh.roombooking.fragments;
 
-import com.bluink.shiftitmanager.R;
+import com.superultrameh.roombooking.R;
 
 import android.app.Fragment;
 import android.os.Bundle;

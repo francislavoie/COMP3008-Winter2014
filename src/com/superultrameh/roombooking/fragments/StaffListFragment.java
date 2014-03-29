@@ -1,10 +1,10 @@
-package com.bluink.shiftitmanager.fragments;
+package com.superultrameh.roombooking.fragments;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bluink.shiftitmanager.R;
-import com.bluink.shiftitmanager.dialogs.StaffDetailDialog;
+import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
 
 import android.app.Activity;
 import android.app.ListFragment;

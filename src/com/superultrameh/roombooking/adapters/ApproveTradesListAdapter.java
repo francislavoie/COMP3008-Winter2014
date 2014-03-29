@@ -1,4 +1,4 @@
-package com.bluink.shiftitmanager.adapters;
+package com.superultrameh.roombooking.adapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bluink.shiftitmanager.R;
+import com.superultrameh.roombooking.R;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;

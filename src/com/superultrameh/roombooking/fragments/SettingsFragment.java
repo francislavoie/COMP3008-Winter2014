@@ -1,6 +1,4 @@
-package com.bluink.shiftitmanager.fragments;
-
-import com.bluink.shiftitmanager.R;
+package com.superultrameh.roombooking.fragments;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;

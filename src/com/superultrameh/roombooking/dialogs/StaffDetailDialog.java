@@ -1,6 +1,6 @@
-package com.bluink.shiftitmanager.dialogs;
+package com.superultrameh.roombooking.dialogs;
 
-import com.bluink.shiftitmanager.R;
+import com.superultrameh.roombooking.R;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.bluink.shiftitmanager.fragments;
+package com.superultrameh.roombooking.fragments;
 
 import android.app.ListFragment;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bluink.shiftitmanager.R;
-import com.bluink.shiftitmanager.adapters.ApproveTradesListAdapter;
+import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.adapters.ApproveTradesListAdapter;
 
 public class ApproveTradesFragment extends ListFragment {
 

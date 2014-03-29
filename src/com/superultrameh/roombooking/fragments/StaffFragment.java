@@ -1,10 +1,10 @@
-package com.bluink.shiftitmanager.fragments;
+package com.superultrameh.roombooking.fragments;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import com.bluink.shiftitmanager.R;
-import com.bluink.util.PagerSlidingTabStrip;
+import com.superultrameh.roombooking.R;
+import com.superultrameh.util.PagerSlidingTabStrip;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;

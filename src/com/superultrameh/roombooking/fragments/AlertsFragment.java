@@ -1,9 +1,8 @@
-package com.bluink.shiftitmanager.fragments;
+package com.superultrameh.roombooking.fragments;
 
-import com.bluink.shiftitmanager.R;
-import com.bluink.shiftitmanager.adapters.AlertListAdapter;
+import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.adapters.AlertListAdapter;
 
-import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
