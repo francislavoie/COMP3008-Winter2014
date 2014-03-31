@@ -24,4 +24,45 @@
     <string name="label_map">Map</string>
     <string name="label_bookings">Bookings</string>
 
+    <!-- Image Descriptions -->
+    <string name="drawer_imageDesc">Drawer list icon</string>
+    <string name="loginBackground_imageDesc">Login Screen Background Image</string>
+    <string name="loginLogo_imageDesc">Login Screen Logo</string>
+    <string name="logo">Logo</string>
+    <string name="background">Background</string>
+
+    <!-- Calendar Default values -->
+    <string name="dayName0">Jan\n1\nSun</string>
+    <string name="dayName1">Jan\n2\nMon</string>
+    <string name="dayName2">Jan\n3\nTue</string>
+    <string name="dayName3">Jan\n4\nWed</string>
+    <string name="dayName4">Jan\n5\nThu</string>
+    <string name="dayName5">Jan\n6\nFri</string>
+    <string name="dayName6">Jan\n7\nSat</string>
+    <string name="time0">12am</string>
+    <string name="time1">1am</string>
+    <string name="time2">2am</string>
+    <string name="time3">3am</string>
+    <string name="time4">4am</string>
+    <string name="time5">5am</string>
+    <string name="time6">6am</string>
+    <string name="time7">7am</string>
+    <string name="time8">8am</string>
+    <string name="time9">9am</string>
+    <string name="time10">10am</string>
+    <string name="time11">11am</string>
+    <string name="time12">12pm</string>
+    <string name="time13">1pm</string>
+    <string name="time14">2pm</string>
+    <string name="time15">3pm</string>
+    <string name="time16">4pm</string>
+    <string name="time17">5pm</string>
+    <string name="time18">6pm</string>
+    <string name="time19">7pm</string>
+    <string name="time20">8pm</string>
+    <string name="time21">9pm</string>
+    <string name="time22">10pm</string>
+    <string name="time23">11pm</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

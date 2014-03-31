@@ -1,11 +1,5 @@
 package com.superultrameh.roombooking.fragments;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.superultrameh.roombooking.R;
-import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
-
 import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
@@ -17,22 +11,42 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class StaffListFragment extends ListFragment {
 
 	final static int LIST_TYPE_NOTSET = -1;
-	final static int LIST_TYPE_PRESENT = 0;
-	final static int LIST_TYPE_SCHEDULED = 1;
-	final static int LIST_TYPE_DROPPED = 2;
+	final static int LIST_TYPE_HOME = 0;
+	final static int LIST_TYPE_MAP = 1;
+	final static int LIST_TYPE_SEARCH = 2;
+    //final static int LIST_TYPE_BOOKING = 3;
 
 	public int mListType;
 	private StaffListAdapter mAdapter;
+
+    public static StaffListFragment newInstance(int page) {
+        StaffListFragment frag = new StaffListFragment();
+        Bundle args = new Bundle();
+        args.putInt("listType", page);
+        frag.setArguments(args);
+        return frag;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mListType = getArguments().getInt("listType", -1);
+    }
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_list_staff,
-				container, false);
+        View rootView = inflater.inflate(R.layout.fragment_list_staff, container, false);
 
 		if (mListType == LIST_TYPE_NOTSET) {
 			Toast.makeText(getActivity(), "derp", Toast.LENGTH_SHORT).show();
@@ -108,19 +122,19 @@ public class StaffListFragment extends ListFragment {
 			scheduledTime.setText(staffList.get(position).getStartTime()
 					+ " - " + staffList.get(position).getEndTime());
 			switch (mType) {
-			case StaffListFragment.LIST_TYPE_PRESENT:
+			case StaffListFragment.LIST_TYPE_HOME:
 				addInfoLabel.setText("Time In");
 				addInfo.setText(staffList.get(position).getTimeIn());
 				addInfo.setTextColor(StaffListFragment.this.getActivity()
 						.getResources().getColor(R.color.text_soft));
 				break;
-			case StaffListFragment.LIST_TYPE_SCHEDULED:
+			case StaffListFragment.LIST_TYPE_MAP:
 				addInfoLabel.setText("Status");
 				addInfo.setText("Not in");
 				addInfo.setTextColor(StaffListFragment.this.getActivity()
 						.getResources().getColor(R.color.text_soft));
 				break;
-			case StaffListFragment.LIST_TYPE_DROPPED:
+			case StaffListFragment.LIST_TYPE_SEARCH:
 				addInfoLabel.setText("Reason");
 				addInfo.setText(staffList.get(position).getReason());
 				addInfo.setTextColor(StaffListFragment.this.getActivity()
@@ -143,24 +157,19 @@ public class StaffListFragment extends ListFragment {
 		private List<Staff> getStaffList() {
 			ArrayList<Staff> staff = new ArrayList<Staff>();
 			switch (mType) {
-			case LIST_TYPE_PRESENT:
-				staff.add(new Staff("Penny J", "9:00", "5:00", "8:55",
-						"Server", ""));
-				staff.add(new Staff("John J", "9:30", "5:30", "9:34", "Dish",
-						""));
-				staff.add(new Staff("Carol L", "9:50", "6:00", "9:40",
-						"Server", ""));
+			case LIST_TYPE_HOME:
+				staff.add(new Staff("Penny J", "9:00", "5:00", "8:55", "Server", ""));
+				staff.add(new Staff("John J", "9:30", "5:30", "9:34", "Dish", ""));
+				staff.add(new Staff("Carol L", "9:50", "6:00", "9:40", "Server", ""));
 				break;
-			case LIST_TYPE_SCHEDULED:
-				staff.add(new Staff("Benois H", "11:30", "8:00", "", "Server",
-						""));
+			case LIST_TYPE_MAP:
+				staff.add(new Staff("Benois H", "11:30", "8:00", "", "Server", ""));
 				staff.add(new Staff("John G", "12:00", "8:30", "", "Dish", ""));
 				staff.add(new Staff("Manual L", "4:00", "10:00", "", "Host", ""));
 				break;
-			case LIST_TYPE_DROPPED:
+			case LIST_TYPE_SEARCH:
 				staff.add(new Staff("Bob J", "3:00", "7:00", "", "Dish", "Sick"));
-				staff.add(new Staff("John H", "4:00", "10:00", "", "Cook",
-						"Family Emerg."));
+				staff.add(new Staff("John H", "4:00", "10:00", "", "Cook", "Family Emerg."));
 				break;
 			case LIST_TYPE_NOTSET:
 				break;

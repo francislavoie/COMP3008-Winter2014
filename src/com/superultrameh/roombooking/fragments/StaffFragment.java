@@ -24,8 +24,7 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_staff, container,
-				false);
+		View rootView = inflater.inflate(R.layout.fragment_staff, container, false);
 
 		// setup date
 //		TextView dateText = (TextView) rootView.findViewById(R.id.staffDate);
@@ -89,9 +88,22 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 		@Override
 		public Fragment getItem(int i) {
 			Log.d(null, "getItem()");
-			mPages[i] = new StaffListFragment();
-			mPages[i].setListType(i);
-			return mPages[i];
+//			mPages[i] = new StaffListFragment();
+//			mPages[i].setListType(i);
+//			return mPages[i];
+
+            switch (i) {
+                case 0:
+                    return StaffListFragment.newInstance(0);
+                case 1:
+                    return StaffListFragment.newInstance(1);
+                case 2:
+                    return StaffListFragment.newInstance(2);
+                case 3:
+                    return ScheduleFragment.newInstance("Test1", "Test2");
+                default:
+                    return null;
+            }
 		}
 
 		@Override
