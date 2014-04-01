@@ -1,5 +1,11 @@
 package com.superultrameh.roombooking.model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by becky on 3/31/2014.
  */
@@ -16,6 +22,54 @@ public class Room {
     private Integer chair;
     private Integer outlet;
     private Integer capacity;
+    private List<AvailableTime> availableTimes;
+
+    public Room(Integer roomNumber, Integer minCapacity, Integer blackboard, Integer whiteboard, Boolean tablesMove, Boolean chairsMove, Integer tv, Integer projector, Integer table, Integer chair, Integer outlet, Integer capacity, List<AvailableTime> availableTimes) {
+        this.roomNumber = roomNumber;
+        this.minCapacity = minCapacity;
+        this.blackboard = blackboard;
+        this.whiteboard = whiteboard;
+        this.tablesMove = tablesMove;
+        this.chairsMove = chairsMove;
+        this.tv = tv;
+        this.projector = projector;
+        this.table = table;
+        this.chair = chair;
+        this.outlet = outlet;
+        this.capacity = capacity;
+        this.availableTimes = availableTimes;
+    }
+    public Room(Integer roomNumber, Integer tv, Integer projector,
+                Integer table, Integer chair, Integer outlet, Integer capacity,
+                Integer minCapacity, Integer blackboard, Integer whiteboard,
+                Boolean tablesMove, Boolean chairsMove) {
+        this.roomNumber = roomNumber;
+        this.tv = tv;
+        this.projector = projector;
+        this.table = table;
+        this.chair = chair;
+        this.outlet = outlet;
+        this.capacity = capacity;
+        this.minCapacity = minCapacity;
+        this.blackboard = blackboard;
+        this.whiteboard = whiteboard;
+        this.tablesMove = tablesMove;
+        this.chairsMove = chairsMove;
+    }
+    public Room() {
+        this.roomNumber = 0;
+        this.tv = 0;
+        this.projector = 0;
+        this.table = 0;
+        this.chair = 0;
+        this.outlet = 0;
+        this.capacity = 0;
+        this.minCapacity = 0;
+        this.blackboard = 0;
+        this.whiteboard = 0;
+        this.tablesMove = false;
+        this.chairsMove = false;
+    }
 
     public Integer getRoomNumber() {
         return roomNumber;
@@ -113,38 +167,23 @@ public class Room {
         this.chairsMove = chairsMove;
     }
 
-    public Room(Integer roomNumber, Integer tv, Integer projector,
-                Integer table, Integer chair, Integer outlet, Integer capacity,
-                Integer minCapacity, Integer blackboard, Integer whiteboard,
-                Boolean tablesMove, Boolean chairsMove) {
-        this.roomNumber = roomNumber;
-        this.tv = tv;
-        this.projector = projector;
-        this.table = table;
-        this.chair = chair;
-        this.outlet = outlet;
-        this.capacity = capacity;
-        this.minCapacity = minCapacity;
-        this.blackboard = blackboard;
-        this.whiteboard = whiteboard;
-        this.tablesMove = tablesMove;
-        this.chairsMove = chairsMove;
-    }
-    public Room() {
-        this.roomNumber = 0;
-        this.tv = 0;
-        this.projector = 0;
-        this.table = 0;
-        this.chair = 0;
-        this.outlet = 0;
-        this.capacity = 0;
-        this.minCapacity = 0;
-        this.blackboard = 0;
-        this.whiteboard = 0;
-        this.tablesMove = false;
-        this.chairsMove = false;
+    public List<AvailableTime> getAvailableTimes() {
+        return availableTimes;
     }
 
+    public void setAvailableTimes(List<AvailableTime> availableTimes) {
+        this.availableTimes = availableTimes;
+    }
 
+    public void addAvailableTime(Date start, Date end) {
+        this.availableTimes.add(new AvailableTime(start, end));
+    }
 
+    public void addAvailableTime(AvailableTime availTime) {
+        this.availableTimes.add(availTime);
+    }
+
+    public void removeAvailableTime(AvailableTime availTime){
+        this.availableTimes.remove(availTime);
+    }
 }
