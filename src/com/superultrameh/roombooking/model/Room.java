@@ -24,7 +24,9 @@ public class Room {
     private Integer capacity;
     private List<AvailableTime> availableTimes;
 
-    public Room(Integer roomNumber, Integer minCapacity, Integer blackboard, Integer whiteboard, Boolean tablesMove, Boolean chairsMove, Integer tv, Integer projector, Integer table, Integer chair, Integer outlet, Integer capacity, List<AvailableTime> availableTimes) {
+    public Room(Integer roomNumber, Integer minCapacity, Integer blackboard, Integer whiteboard, Boolean tablesMove,
+                Boolean chairsMove, Integer tv, Integer projector, Integer table, Integer chair, Integer outlet,
+                Integer capacity, List<AvailableTime> availableTimes) {
         this.roomNumber = roomNumber;
         this.minCapacity = minCapacity;
         this.blackboard = blackboard;
@@ -185,5 +187,48 @@ public class Room {
 
     public void removeAvailableTime(AvailableTime availTime){
         this.availableTimes.remove(availTime);
+    }
+
+    public Boolean compare(Integer roomNumber, Integer minCapacity, Integer blackboard, Integer whiteboard, Boolean tablesMove,
+                           Boolean chairsMove, Integer tv, Integer projector, Integer table, Integer chair, Integer outlet,
+                           Integer capacity, AvailableTime availableTime){
+        Boolean matchesCriteria = true;
+
+        //if attribute is 0 or null dont check it, if value passed make sure that it equal or more then requested
+        if (roomNumber != null && roomNumber != 0){if (roomNumber != this.roomNumber){return false;}}
+        if (minCapacity != null && minCapacity != 0){if (minCapacity > this.minCapacity){return false;}}
+        if (blackboard != null && blackboard != 0){if (blackboard > this.blackboard){return false;}}
+        if (whiteboard != null && whiteboard != 0){if (whiteboard > this.whiteboard){return false;}}
+        if (tablesMove != null){if (tablesMove != this.tablesMove){return false;}}
+        if (chairsMove != null){if (chairsMove != this.chairsMove){return false;}}
+        if (tv != null && tv != 0){if (tv > this.tv){return false;}}
+        if (projector != null && projector != 0){if (projector > this.projector){return false;}}
+        if (table != null && table != 0){if (table > this.table){return false;}}
+        if (chair != null && chair != 0){if (chair > this.chair){return false;}}
+        if (outlet != null && outlet != 0){if (outlet > this.outlet){return false;}}
+        if (capacity != null && capacity != 0){if (capacity > this.capacity){return false;}}
+
+        //check if there is an available time for this room
+        Boolean avTime = false;
+        for (int i = 0; i < this.getAvailableTimes().size(); i++) {
+            if (availableTime.getStartDateTime() != null && availableTime.getEndDateTime() != null) {
+                if (getAvailableTimes().get(i).getStartDateTime().before(availableTime.getStartDateTime()) &&
+                        getAvailableTimes().get(i).getEndDateTime().after(availableTime.getEndDateTime())){
+                    avTime = true;
+                }
+
+            } else if (availableTime.getStartDateTime() != null) {
+                if (getAvailableTimes().get(i).getStartDateTime().before(availableTime.getStartDateTime())){
+                    avTime = true;
+                }
+
+            } else if (availableTime.getEndDateTime() != null) {
+                if (getAvailableTimes().get(i).getEndDateTime().after(availableTime.getEndDateTime())){
+                    avTime = true;
+                }
+            }
+            else {return matchesCriteria;}
+        }
+        return matchesCriteria && avTime;
     }
 }

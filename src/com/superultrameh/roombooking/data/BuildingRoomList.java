@@ -81,4 +81,24 @@ public class BuildingRoomList {
     public void setBuildingNames(List<String> buildingNames) {
         this.buildingNames = buildingNames;
     }
+
+//set to null or 0 if variable doesn't matter
+    public List<Building> findAll(String building, Integer roomNumber, Integer minCapacity, Integer blackboard, Integer whiteboard, Boolean tablesMove,
+                                  Boolean chairsMove, Integer tv, Integer projector, Integer table, Integer chair, Integer outlet,
+                                  Integer capacity, AvailableTime availableTime){
+        List<Building> match = new ArrayList<Building>();
+        for(int b = 0; b < buildingList.size(); b++){
+            List<Room> rooms = buildingList.get(b).getRooms();
+            List<Room> matchRooms = new ArrayList<Room>();
+            for(int r = 0; r < rooms.size(); r++){
+                if (rooms.get(r).compare(roomNumber, minCapacity, blackboard, whiteboard, tablesMove, chairsMove,
+                        tv, projector, table, chair, outlet, capacity, availableTime)){
+                    matchRooms.add(rooms.get(r));}
+            }
+            if (matchRooms.size()!= 0){
+                match.add(new Building(buildingList.get(b).getName(), matchRooms));
+            }
+        }
+        return match;
+    }
 }

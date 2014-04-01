@@ -43,4 +43,6 @@ public class Booking {
     public void setBookedTime(AvailableTime bookedTime) {
         this.bookedTime = bookedTime;
     }
+
+
 }
