@@ -10,6 +10,7 @@ apply plugin: 'android'
 
 dependencies {
     compile 'com.android.support:support-v13:19.0.+'
+    compile 'com.google.android.gms:play-services:4.0.30'
 }
 
 android {
@@ -19,6 +20,23 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 19
+    }
+    signingConfigs {
+        debug {
+            storeFile file('./debug.keystore.jks')
+            storePassword "comp3008"
+            keyAlias "SUPERULTRAMEH"
+            keyPassword "comp3008"
+        }
+
+        /*
+        release {
+            storeFile file('release.keystore')
+            storePassword "mystorepassword"
+            keyAlias "mykeyalias"
+            keyPassword "mykeypassword"
+        }
+        */
     }
     sourceSets {
         main {
