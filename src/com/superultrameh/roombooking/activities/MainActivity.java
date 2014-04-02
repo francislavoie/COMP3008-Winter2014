@@ -1,18 +1,10 @@
 package com.superultrameh.roombooking.activities;
 
-import com.superultrameh.roombooking.R;
-import com.superultrameh.roombooking.fragments.AlertsFragment;
-import com.superultrameh.roombooking.fragments.ApproveTradesFragment;
-import com.superultrameh.roombooking.fragments.MessageStaffFragment;
-import com.superultrameh.roombooking.fragments.SettingsFragment;
-import com.superultrameh.roombooking.fragments.StaffFragment;
-import com.superultrameh.roombooking.fragments.TradeZoneFragment;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,6 +15,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.fragments.AlertsFragment;
+import com.superultrameh.roombooking.fragments.ApproveTradesFragment;
+import com.superultrameh.roombooking.fragments.MessageStaffFragment;
+import com.superultrameh.roombooking.fragments.SettingsFragment;
+import com.superultrameh.roombooking.fragments.StaffFragment;
+import com.superultrameh.roombooking.fragments.TradeZoneFragment;
 
 public class MainActivity extends Activity {
 
@@ -86,8 +86,8 @@ public class MainActivity extends Activity {
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
 		// set drawer shadow
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
-				GravityCompat.START);
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
 		// set up the drawer's list view with items and click listener
 		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
@@ -96,25 +96,25 @@ public class MainActivity extends Activity {
 
 		// enable ActionBar app icon to behave as action to toggle nav drawer
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setHomeButtonEnabled(false);
 		getActionBar().setIcon(R.drawable.shiftit_icon_white);
 
-		mDrawerToggle = new ActionBarDrawerToggle(
-				this,
-				mDrawerLayout,
-				R.drawable.ic_drawer_white,
-				R.string.drawer_open,
-				R.string.drawer_close) {
-			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(mTitle);
-				invalidateOptionsMenu();
-			}
-			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(mDrawerTitle);
-				invalidateOptionsMenu();
-			}
-		};
-		mDrawerLayout.setDrawerListener(mDrawerToggle);
+//		mDrawerToggle = new ActionBarDrawerToggle(
+//				this,
+//				mDrawerLayout,
+//				R.drawable.ic_drawer_white,
+//				R.string.drawer_open,
+//				R.string.drawer_close) {
+//			public void onDrawerClosed(View view) {
+//				getActionBar().setTitle(mTitle);
+//				invalidateOptionsMenu();
+//			}
+//			public void onDrawerOpened(View drawerView) {
+//				getActionBar().setTitle(mDrawerTitle);
+//				invalidateOptionsMenu();
+//			}
+//		};
+//		mDrawerLayout.setDrawerListener(mDrawerToggle);
 		
 		if (savedInstanceState == null) {
 			mPosition = FRAGMENT_NONE;
@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
+//        mDrawerToggle.syncState();
     }
 
 	@Override
@@ -146,9 +146,9 @@ public class MainActivity extends Activity {
 	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+//        if (mDrawerToggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
         
         // TODO: Handle action buttons
         
@@ -165,7 +165,7 @@ public class MainActivity extends Activity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggels
-        mDrawerToggle.onConfigurationChanged(newConfig);
+//        mDrawerToggle.onConfigurationChanged(newConfig);
     }
     
     @Override
@@ -177,7 +177,7 @@ public class MainActivity extends Activity {
 		} else {
 			// correct the current position and redraw the menu
 			mPosition = findCurrentPosition();
-			mDrawerList.setItemChecked(mPosition, true);
+//			mDrawerList.setItemChecked(mPosition, true);
 	        setTitle(mSectionTitles[mPosition]);
 			invalidateOptionsMenu();
 		}
@@ -210,9 +210,9 @@ public class MainActivity extends Activity {
 		ft.commit();
 		
         // update selected item and title, then close the drawer
-        mDrawerList.setItemChecked(position, true);
-        setTitle(mSectionTitles[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+//        mDrawerList.setItemChecked(position, true);
+//        setTitle(mSectionTitles[position]);
+//        mDrawerLayout.closeDrawer(mDrawerList);
     }
 	
 	private int findCurrentPosition() {
