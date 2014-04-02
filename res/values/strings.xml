@@ -66,4 +66,23 @@
     <string name="time23">11pm</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--Search Room Attributes    -->
+    <string name="searchBuilding">Building Name</string>
+    <string name="searchRoomNum">Room Number</string>
+    <string name="searchMinCap">Min. Number of People</string>
+    <string name="searchMaxCap">Max. Number of People</string>
+    <string name="searchBlackboard">Min. # Blackboards</string>
+    <string name="searchWhiteboard">Min. # Whiteboards</string>
+    <string name="searchTV">Min. # Televisions</string>
+    <string name="searchProjector">Min. # Projectors</string>
+    <string name="searchTable">Min. # Tables</string>
+    <string name="searchChair">Min. # Chairs</string>
+    <string name="searchOutlet">Min. # Outlets</string>
+    <string name="searchMoveTable">Can the tables be Moved?</string>
+    <string name="searchMoveChair">Can the chairs be Moved?</string>
+    <string name="searchStartDate">Start Date</string>
+    <string name="searchEndDate">End Date</string>
+    <string name="searchStartTime">Start Time</string>
+    <string name="searchEndTime">End Time</string>
+
 </resources>

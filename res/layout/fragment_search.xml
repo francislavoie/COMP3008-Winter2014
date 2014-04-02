@@ -4,43 +4,372 @@
     android:layout_height="match_parent"
     tools:context="com.superultrameh.roombooking.fragments.SearchFragment">
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="382dp"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="382dp"
-            android:id="@+id/scrollView"
-            android:layout_gravity="center_horizontal">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/building"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/searchBuilding"
+                    android:id="@+id/building_text"
+                    android:layout_weight=".5"
+                    android:autoText="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+
+                <NumberPicker
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/numberPickerBuilding"
+                    android:layout_weight=".25"
+                    android:clickable="true"
+                    android:gravity="center_horizontal"
+                    android:longClickable="true"
+                    android:onClick="setListFooter"
+                    android:textAlignment="center"
+                    android:visibility="visible"
+                    android:showDividers="beginning|middle|end" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:id="@+id/roomNumber">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/linearLayout"
+                    android:id="@+id/linearLayout2"
                     android:layout_weight="1"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal" >
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Medium Text"
+                        android:text="@string/searchRoomNum"
+                        android:id="@+id/rooom_text"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerRoomNumber"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/blackboards">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout4"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchBlackboard"
+                        android:id="@+id/blackboard_text"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerBlackboards"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/whiteboards">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout6"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchWhiteboard"
+                        android:id="@+id/whiteboards_text"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerWhiteboards"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/tablesMove">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout8"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchMoveTable"
+                        android:id="@+id/textView6"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerTablesMove"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/chairsMove" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout3"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchMoveTable"
+                        android:id="@+id/textView11"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerChairsMove"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/tv">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout10"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchTV"
+                        android:id="@+id/textView7"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerTV"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/projector" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout12"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/textView2"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/searchProjector" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerProjector"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/table">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout14"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchTable"
                         android:id="@+id/textView3"
                         android:layout_weight=".5"
                         android:autoText="true"
@@ -51,7 +380,7 @@
                     <NumberPicker
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:id="@+id/numberPicker2"
+                        android:id="@+id/numberPickerTable"
                         android:layout_weight=".25"
                         android:clickable="true"
                         android:gravity="center_horizontal"
@@ -61,229 +390,230 @@
                         android:visibility="visible"
                         android:showDividers="beginning|middle|end" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/linearLayout3">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/linearLayout2"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_horizontal" >
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView2"
-                            android:layout_weight=".5"
-                            android:autoText="true"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
-
-                        <NumberPicker
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:id="@+id/numberPicker"
-                            android:layout_weight=".25"
-                            android:clickable="true"
-                            android:gravity="center_horizontal"
-                            android:longClickable="true"
-                            android:onClick="setListFooter"
-                            android:textAlignment="center"
-                            android:visibility="visible"
-                            android:showDividers="beginning|middle|end" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/linearLayout5">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/linearLayout4"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_horizontal" >
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView4"
-                            android:layout_weight=".5"
-                            android:autoText="true"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
-
-                        <NumberPicker
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:id="@+id/numberPicker3"
-                            android:layout_weight=".25"
-                            android:clickable="true"
-                            android:gravity="center_horizontal"
-                            android:longClickable="true"
-                            android:onClick="setListFooter"
-                            android:textAlignment="center"
-                            android:visibility="visible"
-                            android:showDividers="beginning|middle|end" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/linearLayout7">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/linearLayout6"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_horizontal" >
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView5"
-                            android:layout_weight=".5"
-                            android:autoText="true"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
-
-                        <NumberPicker
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:id="@+id/numberPicker4"
-                            android:layout_weight=".25"
-                            android:clickable="true"
-                            android:gravity="center_horizontal"
-                            android:longClickable="true"
-                            android:onClick="setListFooter"
-                            android:textAlignment="center"
-                            android:visibility="visible"
-                            android:showDividers="beginning|middle|end" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/linearLayout9">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/linearLayout8"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_horizontal" >
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView6"
-                            android:layout_weight=".5"
-                            android:autoText="true"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
-
-                        <NumberPicker
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:id="@+id/numberPicker5"
-                            android:layout_weight=".25"
-                            android:clickable="true"
-                            android:gravity="center_horizontal"
-                            android:longClickable="true"
-                            android:onClick="setListFooter"
-                            android:textAlignment="center"
-                            android:visibility="visible"
-                            android:showDividers="beginning|middle|end" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/linearLayout11">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/linearLayout10"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_horizontal" >
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView7"
-                            android:layout_weight=".5"
-                            android:autoText="true"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
-
-                        <NumberPicker
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:id="@+id/numberPicker6"
-                            android:layout_weight=".25"
-                            android:clickable="true"
-                            android:gravity="center_horizontal"
-                            android:longClickable="true"
-                            android:onClick="setListFooter"
-                            android:textAlignment="center"
-                            android:visibility="visible"
-                            android:showDividers="beginning|middle|end" />
-                    </LinearLayout>
-                </LinearLayout>
-
             </LinearLayout>
-        </ScrollView>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:gravity="center|center_vertical|bottom">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/chair" >
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Search"
-                android:id="@+id/button_search"
-                android:layout_weight="1" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/textView4"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/searchChair" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerChair"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/outlet" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout5"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchOutlet"
+                        android:id="@+id/textView5"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerOutlet"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/capacity" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout9"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/textView8"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/searchMaxCap" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerCapacity"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/start" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout13"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/textView9"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/searchStartTime" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerStart"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/end" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linearLayout16"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/searchEndTime"
+                        android:id="@+id/textView10"
+                        android:layout_weight=".5"
+                        android:autoText="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                    <NumberPicker
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/numberPickerEnd"
+                        android:layout_weight=".25"
+                        android:clickable="true"
+                        android:gravity="center_horizontal"
+                        android:longClickable="true"
+                        android:onClick="setListFooter"
+                        android:textAlignment="center"
+                        android:visibility="visible"
+                        android:showDividers="beginning|middle|end" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:gravity="center|center_vertical|bottom">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/button_search"
+            android:layout_weight="1" />
+
     </LinearLayout>
+</LinearLayout>
 </FrameLayout>
