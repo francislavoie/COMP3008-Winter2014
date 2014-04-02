@@ -14,7 +14,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.superultrameh.roombooking.R;
-import com.superultrameh.roombooking.model.Booking;
+import com.superultrameh.roombooking.data.BuildingRoomList;
+import com.superultrameh.roombooking.model.AvailableTime;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 
 public class ScheduleFragment extends Fragment {
@@ -94,9 +99,34 @@ public class ScheduleFragment extends Fragment {
                     .getIdentifier("buttonDayName" + i, "id",
                             "com.superultrameh.roombooking"));
         }
+
+        BuildingRoomList roomlist = BuildingRoomList.instance();
+
+        clearBookings();
+
+        int min = 1000000;
+
+        for (AvailableTime booking : roomlist.getBuildingList().get(0).getRooms().get(0).getAvailableTimes()) {
+            Calendar startTime = new GregorianCalendar(), endTime = new GregorianCalendar();
+            startTime.setTime(booking.getStartDateTime());
+            endTime.setTime(booking.getEndDateTime());
+
+            int dayOfWeek = startTime.get(Calendar.DAY_OF_WEEK) - 1;
+            int start, duration;
+
+            start = time(startTime.get(Calendar.HOUR_OF_DAY), startTime.get(Calendar.MINUTE));
+            duration = minutesDiff(startTime.getTime(), endTime.getTime());
+            min = Math.min(min, makeBooking(dayOfWeek, start / 2, duration / 2, booking));
+        }
+
+        rootView.findViewById(R.id.scrollView).post(new Runnable() {
+            public void run() {
+                rootView.findViewById(R.id.scrollView).scrollTo(0, 540);
+            }
+        });
     }
 
-    private int makeBooking(int day, int startTime, int duration, final Booking booking) {
+    private int makeBooking(int day, int startTime, int duration, final AvailableTime booking) {
 
         LayoutInflater vi = (LayoutInflater) getActivity()
                 .getApplicationContext().getSystemService(
@@ -126,7 +156,7 @@ public class ScheduleFragment extends Fragment {
 //                booking.getState().getOwnBackgroundPaint().getColor());
 
         v.findViewById(R.id.shiftBorder).setBackgroundColor(0xFF000000);
-        v.findViewById(R.id.shiftBody).setBackgroundColor(0xFF222222);
+        v.findViewById(R.id.shiftBody).setBackgroundColor(0xFFAA2020);
 
         // set button listener
         Button button = (Button) v.findViewById(R.id.button);
@@ -142,6 +172,22 @@ public class ScheduleFragment extends Fragment {
         ((ViewGroup) dayArray[day]).addView(v);
 
         return offset;
+    }
+
+    private int time(int hour, int minute) {
+        return hour * 60 + minute;
+    }
+
+    private static int minutesDiff(Date earlierDate, Date laterDate) {
+        if (earlierDate == null || laterDate == null)
+            return 0;
+        return (int) ((laterDate.getTime() / 60000) - (earlierDate.getTime() / 60000));
+    }
+
+    private void clearBookings() {
+        for (int i = 0; i < 7; i++)
+            if (dayArray[i] != null)
+                dayArray[i].removeAllViews();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

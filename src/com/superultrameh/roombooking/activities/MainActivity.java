@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.data.BuildingRoomList;
 import com.superultrameh.roombooking.fragments.AlertsFragment;
 import com.superultrameh.roombooking.fragments.ApproveTradesFragment;
 import com.superultrameh.roombooking.fragments.MessageStaffFragment;
@@ -56,6 +57,9 @@ public class MainActivity extends Activity {
 		
 		initSections();
 		initDrawer(savedInstanceState);
+
+        // Build all the data at the start of the session
+        BuildingRoomList.instance();
 	}
 	
 	private void initSections() {

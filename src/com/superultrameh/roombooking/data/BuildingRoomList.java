@@ -20,6 +20,9 @@ public class BuildingRoomList {
     private List<String> buildingNames;
 
     public BuildingRoomList(){
+        buildingNames = new ArrayList<String>();
+        buildingList = new ArrayList<Building>();
+
         buildingNames.add("Architecture Building (AA)");
         buildingNames.add("Azrieli Pavillion and Theatre (AT)");
         buildingNames.add("Carleton Technology and Training Centre (CTTC)");
@@ -45,18 +48,20 @@ public class BuildingRoomList {
                         ranNum(0, 15), ranNum(20, 150), ranNum(3, 10), ranNum(0, 4), ranNum(0, 3), 1==ranNum(0,1), 1==ranNum(0,1));
 
                 //generate 5 random available dates
-                //range between 800 to 2400 hours and between april 1 - 15
+                //range between 8:00 to 24:00 hours and between mar 30 - apr 5
                 for (int d = 0; d < 5; d++){
+                    int dayofweek = ranNum(0,6);
                     AvailableTime avTime = new AvailableTime();
                     Integer startTimeMin = ranNum(0,3)*15;
                     Integer startTimeHour = ranNum(8, 17);
                     Integer endTimeHour = ranNum(18,23);
                     Integer endTimeMin = ranNum(0,3)*15;
-                    Integer day = ranNum(1, 15);
-                    avTime.setStartTime(2014, 04, day, startTimeHour, startTimeMin);
-                    avTime.setEndTime(2014, 04, day, endTimeHour, endTimeMin);
+                    Integer day = (dayofweek < 2) ? dayofweek + 30 : dayofweek - 1;
+                    avTime.setStartTime(2014, (dayofweek < 2) ? 03 : 04, day, startTimeHour, startTimeMin);
+                    avTime.setEndTime(2014, (dayofweek < 2) ? 03 : 04, day, endTimeHour, endTimeMin);
                     r.addAvailableTime(avTime);
                 }
+                rooms.add(r);
             }
             buildingList.add(new Building(buildingNames.get(b),rooms ));
         }

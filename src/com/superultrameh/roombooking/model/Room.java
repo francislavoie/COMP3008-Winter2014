@@ -1,8 +1,6 @@
 package com.superultrameh.roombooking.model;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -57,6 +55,7 @@ public class Room {
         this.whiteboard = whiteboard;
         this.tablesMove = tablesMove;
         this.chairsMove = chairsMove;
+        this.availableTimes = new ArrayList<AvailableTime>();
     }
     public Room() {
         this.roomNumber = 0;
@@ -71,6 +70,7 @@ public class Room {
         this.whiteboard = 0;
         this.tablesMove = false;
         this.chairsMove = false;
+        this.availableTimes = new ArrayList<AvailableTime>();
     }
 
     public Integer getRoomNumber() {
