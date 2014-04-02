@@ -6,6 +6,7 @@ import com.superultrameh.roombooking.model.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by becky on 4/1/2014.
@@ -44,8 +45,8 @@ public class BuildingRoomList {
                 for (int d = 0; d < 5; d++){
                     AvailableTime avTime = new AvailableTime();
                     Integer startTimeMin = ranNum(0,3)*15;
-                    Integer startTimeHour = ranNum(8, 21);
-                    Integer endTimeHour = ranNum(10,23);
+                    Integer startTimeHour = ranNum(8, 17);
+                    Integer endTimeHour = ranNum(18,23);
                     Integer endTimeMin = ranNum(0,3)*15;
                     Integer day = ranNum(1, 15);
                     avTime.setStartTime(2014, 04, day, startTimeHour, startTimeMin);
@@ -62,8 +63,9 @@ public class BuildingRoomList {
         this.buildingNames = buildingNames;
     }
 
-    public Integer ranNum(int Min, int Max){
-        return Min + (int)(Math.random() * ((Max - Min) + 1));
+    public Integer ranNum(int min, int max){
+        Random rand = new Random();
+        return rand.nextInt((max - min) + 1) + min;
     }
 
     public List<Building> getBuildingList() {
