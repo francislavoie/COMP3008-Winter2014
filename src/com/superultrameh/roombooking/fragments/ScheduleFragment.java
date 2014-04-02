@@ -2,13 +2,19 @@ package com.superultrameh.roombooking.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.model.Booking;
 
 
 public class ScheduleFragment extends Fragment {
@@ -20,6 +26,11 @@ public class ScheduleFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private View rootView;
+    private RelativeLayout[] dayArray;
+    private TextView[] dayHeaders;
+    private Button[] dayButtons;
 
 //    private OnFragmentInteractionListener mListener;
 
@@ -56,9 +67,81 @@ public class ScheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
+        rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
+
+
+        init();
 
         return rootView;
+    }
+
+    public void init() {
+        dayArray = new RelativeLayout[7];
+        for (int i = 0; i < 7; i++) {
+            dayArray[i] = (RelativeLayout) rootView
+                    .findViewById(getResources().getIdentifier("dayLayout" + i,
+                            "id", "com.superultrameh.roombooking"));
+        }
+        dayHeaders = new TextView[7];
+        for (int i = 0; i < 7; i++) {
+            dayHeaders[i] = (TextView) rootView.findViewById(getResources()
+                    .getIdentifier("textDayName" + i, "id",
+                            "com.superultrameh.roombooking"));
+        }
+        dayButtons = new Button[7];
+        for (int i = 0; i < 7; i++) {
+            dayButtons[i] = (Button) rootView.findViewById(getResources()
+                    .getIdentifier("buttonDayName" + i, "id",
+                            "com.superultrameh.roombooking"));
+        }
+    }
+
+    private int makeBooking(int day, int startTime, int duration, final Booking booking) {
+
+        LayoutInflater vi = (LayoutInflater) getActivity()
+                .getApplicationContext().getSystemService(
+                        Context.LAYOUT_INFLATER_SERVICE);
+        View v = vi.inflate(R.layout.booking_item, null);
+
+        int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                duration, getResources().getDisplayMetrics());
+        int offset = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, startTime, getResources()
+                        .getDisplayMetrics());
+        int sidemargin = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 1, getResources()
+                        .getDisplayMetrics());
+
+        RelativeLayout newShift = (RelativeLayout) v.findViewById(R.id.booking_item);
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, size);
+        params.setMargins(sidemargin, offset, sidemargin, 0);
+        newShift.setLayoutParams(params);
+
+        // set the border and body color of the shift item
+//        v.findViewById(R.id.shiftBorder).setBackgroundColor(
+//                booking.getState().getOwnBorderPaint().getColor());
+//        v.findViewById(R.id.shiftBody).setBackgroundColor(
+//                booking.getState().getOwnBackgroundPaint().getColor());
+
+        v.findViewById(R.id.shiftBorder).setBackgroundColor(0xFF000000);
+        v.findViewById(R.id.shiftBody).setBackgroundColor(0xFF222222);
+
+        // set button listener
+        Button button = (Button) v.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                ShiftDialog dialog = new ShiftDialog(getActivity(), shift, appSection);
+//                dialog.show();
+            }
+        });
+
+        // add shift view
+        ((ViewGroup) dayArray[day]).addView(v);
+
+        return offset;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

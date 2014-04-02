@@ -12,6 +12,10 @@ import java.util.Random;
  * Created by becky on 4/1/2014.
  */
 public class BuildingRoomList {
+
+    private static BuildingRoomList instance;
+    private static Object lock = new Object();
+
     private List<Building> buildingList;
     private List<String> buildingNames;
 
@@ -61,6 +65,15 @@ public class BuildingRoomList {
     public BuildingRoomList(List<Building> buildingList, List<String> buildingNames) {
         this.buildingList = buildingList;
         this.buildingNames = buildingNames;
+    }
+
+    public static final BuildingRoomList instance() {
+        synchronized (lock) {
+            if (instance == null) {
+                instance = new BuildingRoomList();
+            }
+            return instance;
+        }
     }
 
     public Integer ranNum(int min, int max){
