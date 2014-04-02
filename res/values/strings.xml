@@ -33,13 +33,13 @@
     <string name="background">Background</string>
 
     <!-- Calendar Default values -->
-    <string name="dayName0">Jan\n1\nSun</string>
-    <string name="dayName1">Jan\n2\nMon</string>
-    <string name="dayName2">Jan\n3\nTue</string>
-    <string name="dayName3">Jan\n4\nWed</string>
-    <string name="dayName4">Jan\n5\nThu</string>
-    <string name="dayName5">Jan\n6\nFri</string>
-    <string name="dayName6">Jan\n7\nSat</string>
+    <string name="dayName0">Mar\n30\nSun</string>
+    <string name="dayName1">Mar\n31\nMon</string>
+    <string name="dayName2">Apr\n1\nTue</string>
+    <string name="dayName3">Apr\n2\nWed</string>
+    <string name="dayName4">Apr\n3\nThu</string>
+    <string name="dayName5">Apr\n4\nFri</string>
+    <string name="dayName6">Apr\n5\nSat</string>
     <string name="time0">12am</string>
     <string name="time1">1am</string>
     <string name="time2">2am</string>

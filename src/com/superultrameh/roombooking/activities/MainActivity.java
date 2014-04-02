@@ -95,7 +95,8 @@ public class MainActivity extends Activity {
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
 		// enable ActionBar app icon to behave as action to toggle nav drawer
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(false);
+        getActionBar().setDisplayShowHomeEnabled(true);
 		getActionBar().setHomeButtonEnabled(false);
 		getActionBar().setIcon(R.drawable.shiftit_icon_white);
 
