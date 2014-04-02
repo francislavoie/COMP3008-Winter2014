@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.NumberPicker;
 
 import com.superultrameh.roombooking.R;
@@ -50,6 +51,7 @@ public class SearchFragment extends Fragment{
         NumberPicker npBuilding = (NumberPicker) rootView.findViewById(R.id.numberPickerBuilding);
         npBuilding.setMaxValue(9);
         npBuilding.setMinValue(0);
+        npBuilding.setHorizontalScrollBarEnabled(false);
         npBuilding.setWrapSelectorWheel(false);
 
         NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);
@@ -65,6 +67,7 @@ public class SearchFragment extends Fragment{
         NumberPicker npWhiteboards = (NumberPicker) rootView.findViewById(R.id.numberPickerWhiteboards);
         npWhiteboards.setMaxValue(9);
         npWhiteboards.setMinValue(0);
+        npWhiteboards.setWrapSelectorWheel(false);
 
         NumberPicker npCapacity = (NumberPicker) rootView.findViewById(R.id.numberPickerCapacity);
         npCapacity.setMaxValue(9);
@@ -107,6 +110,13 @@ public class SearchFragment extends Fragment{
         npTV.setMaxValue(9);
         npTV.setMinValue(0);
         npTV.setWrapSelectorWheel(false);
+
+        DatePicker dpStart = (DatePicker) rootView.findViewById(R.id.datePicker);
+        dpStart.setCalendarViewShown(false);
+
+        DatePicker dpEnd = (DatePicker) rootView.findViewById(R.id.datePicker2);
+        dpEnd.setCalendarViewShown(false);
+
         return rootView;
 
 
