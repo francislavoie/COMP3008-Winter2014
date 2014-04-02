@@ -2,24 +2,12 @@ package com.superultrameh.roombooking.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
-import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.model.LatLng;
 import com.superultrameh.roombooking.R;
 
 /**
@@ -32,8 +20,6 @@ public class SearchFragment extends Fragment{
     private String mParam1;
     private String mParam2;
 
-    MapView mapView;
-    GoogleMap map;
     public static SearchFragment newInstance(String param1, String param2) {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
@@ -59,8 +45,7 @@ public class SearchFragment extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
 
-        NumberPicker np=
-                (NumberPicker) rootView.findViewById(R.id.numberPicker2);
+        NumberPicker np = (NumberPicker) rootView.findViewById(R.id.numberPicker2);
         np.setMaxValue(9);
         np.setMinValue(0);
         np.setWrapSelectorWheel(false);

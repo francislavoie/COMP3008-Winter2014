@@ -81,7 +81,7 @@ public class MapsFragment extends Fragment {
         switch (GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity()) )
         {
             case ConnectionResult.SUCCESS:
-                Toast.makeText(getActivity(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "SUCCESS", Toast.LENGTH_SHORT).show();
                 mapView = (MapView) rootView.findViewById(R.id.map);
                 mapView.onCreate(savedInstanceState);
                 // Gets to GoogleMap from the MapView and does initialization stuff
@@ -95,10 +95,10 @@ public class MapsFragment extends Fragment {
                 }
                 break;
             case ConnectionResult.SERVICE_MISSING:
-                Toast.makeText(getActivity(), "SERVICE MISSING", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "SERVICE MISSING", Toast.LENGTH_SHORT).show();
                 break;
             case ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED:
-                Toast.makeText(getActivity(), "UPDATE REQUIRED", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "UPDATE REQUIRED", Toast.LENGTH_SHORT).show();
                 break;
             default: Toast.makeText(getActivity(), GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity()), Toast.LENGTH_SHORT).show();
         }

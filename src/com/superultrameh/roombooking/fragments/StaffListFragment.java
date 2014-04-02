@@ -60,15 +60,6 @@ public class StaffListFragment extends ListFragment {
 		return rootView;
 	}
 
-	/**
-	 * Set the list type to either present, scheduled, or dropped.
-	 * 
-	 * @param listType
-	 */
-	public void setListType(int listType) {
-		mListType = listType;
-	}
-
 	private class StaffListAdapter extends BaseAdapter {
 
 		private Activity mActivity;
