@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Scroll down for more"
+                android:text="Scroll down for more options"
                 android:id="@+id/textView12"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#FFFFFF"
@@ -38,7 +38,7 @@
 
         <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="382dp"
+        android:layout_height="350dp"
         android:id="@+id/scrollView"
         android:layout_gravity="center_horizontal">
 
@@ -68,17 +68,18 @@
                     android:paddingRight="10dp" />
 
                 <NumberPicker
-                    android:layout_width="110dp"
-                    android:layout_height="75dp"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
                     android:id="@+id/numberPickerBuilding"
+                    android:layout_weight=".25"
                     android:clickable="true"
                     android:gravity="center_horizontal"
                     android:longClickable="true"
                     android:onClick="setListFooter"
                     android:textAlignment="center"
                     android:visibility="visible"
-                    android:scaleY="0.7"
                     android:showDividers="beginning|middle|end" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -142,18 +143,12 @@
                         android:layout_height="fill_parent"
                         android:id="@+id/linearLayout11" >
 
-                        <TextView
+                        <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:id="@+id/textView9"
-                            android:layout_weight=".5"
-                            android:autoText="true"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:layout_height="wrap_content"
                             android:text="@string/searchStartTime"
-                            android:layout_gravity="center_horizontal" />
+                            android:id="@+id/checkBoxSearchStart"
+                            android:layout_gravity="center" />
 
                         <RelativeLayout
                             android:orientation="horizontal"
@@ -200,19 +195,14 @@
                     android:layout_height="fill_parent"
                     android:id="@+id/linearLayout7" >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:id="@+id/textView10"
-                        android:layout_weight=".5"
-                        android:autoText="true"
-                        android:gravity="center_vertical|center_horizontal"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:text="@string/searchEndTime"
-                        android:layout_gravity="center_horizontal" />
 
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/searchEndTime"
+                        android:id="@+id/checkBoxSearchEnd"
+                        android:layout_gravity="center"
+                        android:singleLine="true" />
 
                     <RelativeLayout
                         android:orientation="horizontal"
@@ -661,26 +651,23 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_gravity="center_horizontal|bottom"
         android:gravity="center|center_vertical|bottom">
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:text="Search"
             android:id="@+id/button_search"
             android:background="#AA2020"
             android:layout_weight="1"
             android:clickable="true"
             android:textSize="25dp"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:layout_gravity="bottom" />
 
     </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"></LinearLayout>
     </LinearLayout>
 </FrameLayout>
