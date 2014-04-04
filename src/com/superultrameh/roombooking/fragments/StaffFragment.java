@@ -94,7 +94,7 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 
             switch (i) {
                 case 0:
-                    return StaffListFragment.newInstance(0);
+                    return BuildingListFragment.newInstance("","");
                 case 1:
                     return MapsFragment.newInstance("Test1", "Test2");
                 case 2:
