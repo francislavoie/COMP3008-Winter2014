@@ -1,6 +1,7 @@
 package com.superultrameh.roombooking.fragments;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
@@ -13,11 +14,13 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.adapters.ExpandableListAdapter;
 import com.superultrameh.roombooking.data.BookingsList;
 import com.superultrameh.roombooking.data.BuildingRoomList;
+import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
 import com.superultrameh.roombooking.model.AvailableTime;
 import com.superultrameh.roombooking.model.Building;
 import com.superultrameh.roombooking.model.Room;
@@ -96,7 +99,19 @@ public class BuildingListFragment extends Fragment {
 
             // setting list adapter
             expListView.setAdapter(listAdapter);
+            expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
+                public boolean onChildClick(ExpandableListView parent, View v,
+                                            int groupPosition, int childPosition, long id) {
+                    final String selected = (String) listAdapter.getChild(
+                            groupPosition, childPosition);
+
+                    StaffDetailDialog dialog = new StaffDetailDialog(BuildingListFragment.this.getActivity());
+                    dialog.show();
+
+                    return true;
+                }
+            });
             init();
 
             return rootView;
@@ -109,44 +124,11 @@ public class BuildingListFragment extends Fragment {
         for (Building building : buildingRoomlist.getBuildingList()) {
             listDataHeader.add(building.getName());
             List<String> roomList = new ArrayList<String>();
-            for (Room room : buildingRoomlist.getBuildingList().get(listDataHeader.size()-1).getRooms()) {
+            for (Room room : buildingRoomlist.getBuildingList().get(listDataHeader.size() - 1).getRooms()) {
                 roomList.add(Integer.toString(room.getRoomNumber()));
             }
-            listDataChild.put(listDataHeader.get(listDataHeader.size()-1), roomList);
+            listDataChild.put(listDataHeader.get(listDataHeader.size() - 1), roomList);
         }
-        // Adding child data
-  /*      listDataHeader.add("Top 250");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
-
-        // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
-
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
-
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);*/
     }
         public void init() {
 

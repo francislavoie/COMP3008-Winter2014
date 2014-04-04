@@ -6,10 +6,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
+import android.widget.ScrollView;
 
 import com.superultrameh.roombooking.R;
+import com.superultrameh.roombooking.data.BuildingRoomList;
+import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
+import com.superultrameh.roombooking.model.AvailableTime;
+import com.superultrameh.roombooking.model.Building;
+import com.superultrameh.roombooking.model.Room;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by becky on 4/1/2014.
@@ -20,6 +30,21 @@ public class SearchFragment extends Fragment{
 
     private String mParam1;
     private String mParam2;
+
+    private String buildingName;
+    private Integer roomNumber;
+    private Integer minCapacity;
+    private Integer blackboard;
+    private Integer whiteboard;
+    private Boolean tablesMove;
+    private Boolean chairsMove;
+    private Integer tv;
+    private Integer projector;
+    private Integer table;
+    private Integer chair;
+    private Integer outlet;
+    private Integer capacity;
+    private AvailableTime startEndTime;
 
     public static SearchFragment newInstance(String param1, String param2) {
         SearchFragment fragment = new SearchFragment();
@@ -48,13 +73,13 @@ public class SearchFragment extends Fragment{
         String[] listYesNo=new String[2];
         listYesNo[1] = "Yes";
         listYesNo[0] = "No";
-        NumberPicker npBuilding = (NumberPicker) rootView.findViewById(R.id.numberPickerBuilding);
+
+        final NumberPicker npBuilding = (NumberPicker) rootView.findViewById(R.id.numberPickerBuilding);
         npBuilding.setMaxValue(9);
         npBuilding.setMinValue(0);
-        npBuilding.setHorizontalScrollBarEnabled(false);
         npBuilding.setWrapSelectorWheel(false);
 
-        NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);
+        final NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);
         npRoomNumber.setMaxValue(9);
         npRoomNumber.setMinValue(0);
         npRoomNumber.setWrapSelectorWheel(false);
@@ -89,13 +114,13 @@ public class SearchFragment extends Fragment{
         npTable.setMinValue(0);
         npTable.setWrapSelectorWheel(false);
 
-        NumberPicker npMoveChair = (NumberPicker) rootView.findViewById(R.id.numberPickerChairsMove);
+        final NumberPicker npMoveChair = (NumberPicker) rootView.findViewById(R.id.numberPickerChairsMove);
         npMoveChair.setMaxValue(listYesNo.length-1);
         npMoveChair.setMinValue(0);
         npMoveChair.setDisplayedValues(listYesNo);
         npMoveChair.setWrapSelectorWheel(false);
 
-        NumberPicker npMoveTable = (NumberPicker) rootView.findViewById(R.id.numberPickerTablesMove);
+        final NumberPicker npMoveTable = (NumberPicker) rootView.findViewById(R.id.numberPickerTablesMove);
         npMoveTable.setMaxValue(listYesNo.length-1);
         npMoveTable.setMinValue(0);
         npMoveTable.setDisplayedValues(listYesNo);
@@ -117,10 +142,41 @@ public class SearchFragment extends Fragment{
         DatePicker dpEnd = (DatePicker) rootView.findViewById(R.id.datePicker2);
         dpEnd.setCalendarViewShown(false);
 
+
+        Button buttonSearch = (Button) rootView.findViewById(R.id.button_search);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+              /*  buildingName = npBuilding.getDisplayedValues()[npBuilding.getValue()];
+                roomNumber = Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                roomNumber = Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                minCapacity = Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                blackboard = Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                whiteboard = Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                tablesMove= (npMoveTable.getValue() == 1) ? true : false;
+                chairsMove= (npMoveChair.getValue() == 1) ? true : false;
+                tv= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                projector= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                table= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                chair= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                outlet= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                capacity= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+             //   startEndTime= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
+                List<Building> list = BuildingRoomList.instance().findAll(buildingName, roomNumber, minCapacity,
+                        blackboard, whiteboard, tablesMove, chairsMove, tv, projector, table, chair, outlet, capacity, startEndTime);
+              //  StaffDetailDialog dialog = new StaffDetailDialog(SearchFragment.this.getActivity());
+               // dialog.show();*/
+            }
+        });
         return rootView;
 
 
     }
+{
+
+
+    }
+
 
     @Override
     public void onAttach(Activity activity) {

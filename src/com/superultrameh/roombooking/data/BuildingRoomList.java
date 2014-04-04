@@ -54,7 +54,6 @@ public class BuildingRoomList {
                     Integer endTimeHour = ranNum(18,23);
                     Integer endTimeMin = ranNum(0,3)*15;
                     Integer day = (d == 0) ? ranNum(30,31) : ranNum(1,4);
-
                     avTime.setStartTime(2014, (day < 5) ? 04 : 03, day, startTimeHour, startTimeMin);
                     avTime.setEndTime(2014, (day < 5) ? 04 : 03, day, endTimeHour, endTimeMin);
                     r.addAvailableTime(avTime);
