@@ -25,15 +25,12 @@ public class BuildingRoomList {
 
         buildingNames.add("Architecture Building (AA)");
         buildingNames.add("Azrieli Pavillion and Theatre (AT)");
-        buildingNames.add("Carleton Technology and Training Centre (CTTC)");
         buildingNames.add("Dunton Tower (DT)");
         buildingNames.add("Herzberg Laboratories (HP)");
-        buildingNames.add("Life Sciences Research Building (LS)");
         buildingNames.add("Loeb Building (LA)");
         buildingNames.add("Mackenzie Building (ME)");
         buildingNames.add("MacOdrum Library (ML)");
         buildingNames.add("Minto Centre (MC)");
-        buildingNames.add("Social Sciences Research Building (SR)");
         buildingNames.add("Southam Hall (SA)");
         buildingNames.add("St. Patrick’s Building (SP)");
         buildingNames.add("Steacie Building (SC)");
@@ -49,16 +46,17 @@ public class BuildingRoomList {
 
                 //generate 5 random available dates
                 //range between 8:00 to 24:00 hours and between mar 30 - apr 5
-                for (int d = 0; d < 5; d++){
+                for (int d = 0; d < 2; d++){
                     int dayofweek = ranNum(0,6);
                     AvailableTime avTime = new AvailableTime();
                     Integer startTimeMin = ranNum(0,3)*15;
                     Integer startTimeHour = ranNum(8, 17);
                     Integer endTimeHour = ranNum(18,23);
                     Integer endTimeMin = ranNum(0,3)*15;
-                    Integer day = (dayofweek < 2) ? dayofweek + 30 : dayofweek - 1;
-                    avTime.setStartTime(2014, (dayofweek < 2) ? 03 : 04, day, startTimeHour, startTimeMin);
-                    avTime.setEndTime(2014, (dayofweek < 2) ? 03 : 04, day, endTimeHour, endTimeMin);
+                    Integer day = (d == 0) ? ranNum(30,31) : ranNum(1,4);
+
+                    avTime.setStartTime(2014, (day < 5) ? 04 : 03, day, startTimeHour, startTimeMin);
+                    avTime.setEndTime(2014, (day < 5) ? 04 : 03, day, endTimeHour, endTimeMin);
                     r.addAvailableTime(avTime);
                 }
                 rooms.add(r);
