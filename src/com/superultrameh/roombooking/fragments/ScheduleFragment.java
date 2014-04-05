@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
+import com.superultrameh.roombooking.dialogs.BookingFromScheduleDialog;
 import com.superultrameh.roombooking.model.AvailableTime;
 
 import java.util.Calendar;
@@ -163,8 +164,8 @@ public class ScheduleFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ShiftDialog dialog = new ShiftDialog(getActivity(), shift, appSection);
-//                dialog.show();
+                BookingFromScheduleDialog dialog = new BookingFromScheduleDialog(getActivity(), booking);
+                dialog.show();
             }
         });
 

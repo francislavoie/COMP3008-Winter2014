@@ -85,7 +85,7 @@
     <string name="searchStartTime">Start Time</string>
     <string name="searchEndTime">End Time</string>
 
-<string name="dialogBook">Book for 1 Hour</string>
+    <string name="dialogBook">Book</string>
     <string name="dialogAvailTime">Available Times</string>
 
     <string-array name="building_arrays">

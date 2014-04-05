@@ -165,7 +165,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
              //   startEndTime= Integer.getInteger(npRoomNumber.getDisplayedValues()[npRoomNumber.getValue()]);
                 List<Building> list = BuildingRoomList.instance().findAll(buildingName, roomNumber, minCapacity,
                         blackboard, whiteboard, tablesMove, chairsMove, tv, projector, table, chair, outlet, capacity, startEndTime);
-              //  StaffDetailDialog dialog = new StaffDetailDialog(SearchFragment.this.getActivity());
+              //  BookingFromScheduleDialog dialog = new BookingFromScheduleDialog(SearchFragment.this.getActivity());
                // dialog.show();*/
             }
         });

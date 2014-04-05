@@ -1,34 +1,22 @@
 package com.superultrameh.roombooking.fragments;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.Fragment;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.adapters.ExpandableListAdapter;
-import com.superultrameh.roombooking.data.BookingsList;
 import com.superultrameh.roombooking.data.BuildingRoomList;
-import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
-import com.superultrameh.roombooking.model.AvailableTime;
+import com.superultrameh.roombooking.dialogs.BookingFromScheduleDialog;
 import com.superultrameh.roombooking.model.Building;
 import com.superultrameh.roombooking.model.Room;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -106,7 +94,7 @@ public class BuildingListFragment extends Fragment {
                     final String selected = (String) listAdapter.getChild(
                             groupPosition, childPosition);
 
-                    StaffDetailDialog dialog = new StaffDetailDialog(BuildingListFragment.this.getActivity());
+                    BookingFromScheduleDialog dialog = new BookingFromScheduleDialog(BuildingListFragment.this.getActivity(), null);
                     dialog.show();
 
                     return true;

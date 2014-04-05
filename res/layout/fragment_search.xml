@@ -1,37 +1,50 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.superultrameh.roombooking.fragments.SearchFragment">
-    <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#000002"
-            android:id="@+id/header">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Scroll down for more options"
-                android:id="@+id/textView12"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#FFFFFF"
-                android:textSize="17dp" />
-        </LinearLayout>
-
-        <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
+        android:background="#000002"
+        android:id="@+id/header"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Scroll down for more options"
+            android:id="@+id/textView12"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/button_search"
+        android:clickable="true"
+        android:textSize="25dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:id="@+id/scrollView"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@id/button_search"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="0dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -160,6 +173,7 @@
                                 android:layout_marginTop="0dp"
                                 android:layout_alignParentEnd="false"
                                 android:layout_marginLeft="170dp" />
+
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -632,26 +646,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal|bottom"
-        android:gravity="center|center_vertical|bottom">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:text="Search"
-            android:id="@+id/button_search"
-            android:background="#AA2020"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:textSize="25dp"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="bottom" />
-
-    </LinearLayout>
-
-    </LinearLayout>
-</FrameLayout>
+</RelativeLayout>
