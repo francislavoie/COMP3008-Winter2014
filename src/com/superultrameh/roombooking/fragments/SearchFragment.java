@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
@@ -74,10 +76,12 @@ public class SearchFragment extends Fragment{
         listYesNo[1] = "Yes";
         listYesNo[0] = "No";
 
-        final NumberPicker npBuilding = (NumberPicker) rootView.findViewById(R.id.numberPickerBuilding);
-        npBuilding.setMaxValue(9);
-        npBuilding.setMinValue(0);
-        npBuilding.setWrapSelectorWheel(false);
+        Spinner spinnerBuilding = (Spinner) rootView.findViewById(R.id.spinnerBuilding);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
+                (getActivity(), android.R.layout.simple_spinner_item,BuildingRoomList.instance().getBuildingNames());
+        dataAdapter.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+        spinnerBuilding.setAdapter(dataAdapter);
 
         final NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);
         npRoomNumber.setMaxValue(9);
