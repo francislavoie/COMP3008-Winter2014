@@ -62,7 +62,7 @@
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:id="@+id/spinnerBuilding"
-                    android:layout_weight="1"
+                    android:layout_weight=".8"
                     android:gravity="center_horizontal"
                  />
 
@@ -94,15 +94,13 @@
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp" />
 
-                    <NumberPicker
+                    <Spinner
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:id="@+id/numberPickerRoomNumber"
-                        android:layout_weight=".25"
+                        android:id="@+id/spinnerRoomNumber"
+                        android:layout_weight=".80"
                         android:clickable="true"
                         android:gravity="center_horizontal"
-                        android:longClickable="true"
-                        android:onClick="setListFooter"
                         android:textAlignment="center"
                         android:visibility="visible"
                         android:showDividers="beginning|middle|end" />

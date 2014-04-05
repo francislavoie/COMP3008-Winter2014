@@ -75,14 +75,11 @@ public class SearchFragment extends Fragment{
         String[] listYesNo=new String[2];
         listYesNo[1] = "Yes";
         listYesNo[0] = "No";
-//R.array.building_arrays
+
         Spinner spinnerBuilding = (Spinner) rootView.findViewById(R.id.spinnerBuilding);
-        List<String> list = BuildingRoomList.instance().getBuildingNames();
-        list.add(0,"");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
-                (getActivity(), android.R.layout.simple_spinner_item,list);
-        dataAdapter.setDropDownViewResource
-                (android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingNames());
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBuilding.setAdapter(dataAdapter);
 
         final NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);

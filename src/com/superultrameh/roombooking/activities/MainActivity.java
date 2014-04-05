@@ -13,17 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
-import com.superultrameh.roombooking.fragments.AlertsFragment;
-import com.superultrameh.roombooking.fragments.ApproveTradesFragment;
-import com.superultrameh.roombooking.fragments.MessageStaffFragment;
-import com.superultrameh.roombooking.fragments.SettingsFragment;
 import com.superultrameh.roombooking.fragments.StaffFragment;
-import com.superultrameh.roombooking.fragments.TradeZoneFragment;
 
 public class MainActivity extends Activity {
 
@@ -66,11 +60,6 @@ public class MainActivity extends Activity {
 		// initialize fragments
 		mSections = new Fragment[6];
 		mSections[0] = new StaffFragment();
-		mSections[1] = new TradeZoneFragment();
-		mSections[2] = new ApproveTradesFragment();
-		mSections[3] = new MessageStaffFragment();
-		mSections[4] = new AlertsFragment();
-		mSections[5] = new SettingsFragment();
 	}
 	
 	private void initDrawer(Bundle savedInstanceState) {
@@ -79,11 +68,6 @@ public class MainActivity extends Activity {
 		mTitle = mDrawerTitle = getTitle();
 		mSectionTitles = new String[6];
 		mSectionTitles[0] = getResources().getString(R.string.title_staff);
-		mSectionTitles[1] = getResources().getString(R.string.title_tradeZone);
-		mSectionTitles[2] = getResources().getString(R.string.title_approveTrades);
-		mSectionTitles[3] = getResources().getString(R.string.title_messageStaff);
-		mSectionTitles[4] = getResources().getString(R.string.title_alerts);
-		mSectionTitles[5] = getResources().getString(R.string.title_settings);
 
 		// find layout objects in xml
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -94,9 +78,9 @@ public class MainActivity extends Activity {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
 		// set up the drawer's list view with items and click listener
-		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-				R.layout.drawer_list_item, mSectionTitles));
-		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+//		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+//				R.layout.drawer_list_item, mSectionTitles));
+//		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
 		// enable ActionBar app icon to behave as action to toggle nav drawer
 		getActionBar().setDisplayHomeAsUpEnabled(false);
