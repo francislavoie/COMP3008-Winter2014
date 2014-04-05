@@ -16,15 +16,15 @@ import android.view.ViewGroup;
 import com.superultrameh.roombooking.R;
 import com.superultrameh.util.PagerSlidingTabStrip;
 
-public class StaffFragment extends Fragment implements ActionBar.TabListener {
+public class PagerFragment extends Fragment implements ActionBar.TabListener {
 
 	ViewPager mPager;
-	StaffPagerAdapter mAdapter;
+	PagerAdapter mAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_staff, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
 
 		// setup date
 //		TextView dateText = (TextView) rootView.findViewById(R.id.staffDate);
@@ -34,7 +34,7 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 //		dateText.setText(dateString);
 		
 		// setup pager and adapter
-		mAdapter = new StaffPagerAdapter(getFragmentManager());
+		mAdapter = new PagerAdapter(getFragmentManager());
 		mPager = (ViewPager) rootView.findViewById(R.id.staffPager);
 		mPager.setAdapter(mAdapter);
 
@@ -71,13 +71,12 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 		actionBar.removeAllTabs();
 	}
 
-	private class StaffPagerAdapter extends FragmentPagerAdapter {
+	private class PagerAdapter extends FragmentPagerAdapter {
 
 		private FragmentManager fm;
 
-		public StaffPagerAdapter(FragmentManager fm) {
+		public PagerAdapter(FragmentManager fm) {
 			super(fm);
-			Log.d(null, "StaffPagerAdapter()");
 			this.fm = fm;
 		}
 

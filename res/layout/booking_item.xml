@@ -19,6 +19,6 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/ShiftButton" />
+        style="@style/TimeButton" />
 
 </RelativeLayout>

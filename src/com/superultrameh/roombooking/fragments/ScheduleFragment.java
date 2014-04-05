@@ -9,8 +9,11 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.superultrameh.roombooking.R;
@@ -82,6 +85,71 @@ public class ScheduleFragment extends Fragment {
     }
 
     public void init() {
+
+        Spinner spinnerBuilding = (Spinner) rootView.findViewById(R.id.spinnerBuilding);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingNames());
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerBuilding.setAdapter(dataAdapter);
+        spinnerBuilding.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Spinner spinnerRoomNumber = (Spinner) rootView.findViewById(R.id.spinnerRoomNumber);
+                ArrayAdapter<String> roomAdapter = new ArrayAdapter<String>(getActivity(),
+                        android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(position).getRoomNumbers());
+                roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerRoomNumber.setAdapter(roomAdapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        Spinner spinnerRoomNumber = (Spinner) rootView.findViewById(R.id.spinnerRoomNumber);
+        ArrayAdapter<String> roomAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(0).getRoomNumbers());
+        roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRoomNumber.setAdapter(roomAdapter);
+        spinnerRoomNumber.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                BuildingRoomList roomlist = BuildingRoomList.instance();
+
+                Spinner spinnerBuilding = (Spinner) rootView.findViewById(R.id.spinnerBuilding);
+                int buildingID = spinnerBuilding.getSelectedItemPosition();
+
+                clearBookings();
+
+                int min = 1000000;
+
+                for (AvailableTime booking : roomlist.getBuildingList().get(buildingID).getRooms().get(position).getAvailableTimes()) {
+                    Calendar startTime = new GregorianCalendar(), endTime = new GregorianCalendar();
+                    startTime.setTime(booking.getStartDateTime());
+                    endTime.setTime(booking.getEndDateTime());
+
+                    int dayOfWeek = startTime.get(Calendar.DAY_OF_WEEK) - 1;
+                    int start, duration;
+
+                    start = time(startTime.get(Calendar.HOUR_OF_DAY), startTime.get(Calendar.MINUTE));
+                    duration = minutesDiff(startTime.getTime(), endTime.getTime());
+                    min = Math.min(min, makeBooking(dayOfWeek, start / 2, duration / 2, booking));
+                }
+
+//                rootView.findViewById(R.id.scrollView).post(new Runnable() {
+//                    public void run() {
+//                        rootView.findViewById(R.id.scrollView).scrollTo(0, 540);
+//                    }
+//                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         dayArray = new RelativeLayout[7];
         for (int i = 0; i < 7; i++) {
             dayArray[i] = (RelativeLayout) rootView

@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
-import com.superultrameh.roombooking.fragments.StaffFragment;
+import com.superultrameh.roombooking.fragments.PagerFragment;
 
 public class MainActivity extends Activity {
 
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 	private void initSections() {
 		// initialize fragments
 		mSections = new Fragment[6];
-		mSections[0] = new StaffFragment();
+		mSections[0] = new PagerFragment();
 	}
 	
 	private void initDrawer(Bundle savedInstanceState) {
@@ -67,7 +67,6 @@ public class MainActivity extends Activity {
 		// setup titles
 		mTitle = mDrawerTitle = getTitle();
 		mSectionTitles = new String[6];
-		mSectionTitles[0] = getResources().getString(R.string.title_staff);
 
 		// find layout objects in xml
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -86,7 +85,7 @@ public class MainActivity extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setDisplayShowHomeEnabled(true);
 		getActionBar().setHomeButtonEnabled(false);
-		getActionBar().setIcon(R.drawable.shiftit_icon_white);
+		getActionBar().setIcon(R.drawable.carleton_icon_white);
 
 //		mDrawerToggle = new ActionBarDrawerToggle(
 //				this,
