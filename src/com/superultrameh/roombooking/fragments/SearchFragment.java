@@ -72,6 +72,8 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         listYesNo[1] = "Yes";
         listYesNo[0] = "No";
 
+        String[] displayedValues;
+
         Spinner spinnerBuilding = (Spinner) rootView.findViewById(R.id.spinnerBuilding);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingNames());
@@ -86,34 +88,37 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         spinnerRoomNumber.setAdapter(roomAdapter);
 
         NumberPicker npBlackboards = (NumberPicker) rootView.findViewById(R.id.numberPickerBlackboards);
-        npBlackboards.setMaxValue(9);
+        npBlackboards.setMaxValue(5);
         npBlackboards.setMinValue(0);
-        npBlackboards.setWrapSelectorWheel(false);
 
         NumberPicker npWhiteboards = (NumberPicker) rootView.findViewById(R.id.numberPickerWhiteboards);
-        npWhiteboards.setMaxValue(9);
+        npWhiteboards.setMaxValue(5);
         npWhiteboards.setMinValue(0);
-        npWhiteboards.setWrapSelectorWheel(false);
 
+        displayedValues = new String[16];
+        for(int i=0; i<16; i++) displayedValues[i] = String.valueOf(10 * i);
         NumberPicker npCapacity = (NumberPicker) rootView.findViewById(R.id.numberPickerCapacity);
-        npCapacity.setMaxValue(9);
+        npCapacity.setMaxValue(displayedValues.length-1);
         npCapacity.setMinValue(0);
-        npCapacity.setWrapSelectorWheel(false);
+        npCapacity.setDisplayedValues(displayedValues);
 
         NumberPicker npOutlets = (NumberPicker) rootView.findViewById(R.id.numberPickerOutlet);
-        npOutlets.setMaxValue(9);
+        npOutlets.setMaxValue(20);
         npOutlets.setMinValue(0);
-        npOutlets.setWrapSelectorWheel(false);
 
+        displayedValues = new String[21];
+        for(int i=0; i<21; i++) displayedValues[i] = String.valueOf(5 * i);
         NumberPicker npChair = (NumberPicker) rootView.findViewById(R.id.numberPickerChair);
-        npChair.setMaxValue(9);
+        npChair.setMaxValue(displayedValues.length-1);
         npChair.setMinValue(0);
-        npChair.setWrapSelectorWheel(false);
+        npChair.setDisplayedValues(displayedValues);
 
+        displayedValues = new String[5];
+        for(int i=0; i<5; i++) displayedValues[i] = String.valueOf(5 * i);
         NumberPicker npTable = (NumberPicker) rootView.findViewById(R.id.numberPickerTable);
-        npTable.setMaxValue(2);
+        npTable.setMaxValue(displayedValues.length-1);
         npTable.setMinValue(0);
-        npTable.setWrapSelectorWheel(false);
+        npTable.setDisplayedValues(displayedValues);
 
         final NumberPicker npMoveChair = (NumberPicker) rootView.findViewById(R.id.numberPickerChairsMove);
         npMoveChair.setMaxValue(listYesNo.length-1);
@@ -128,14 +133,12 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         npMoveTable.setWrapSelectorWheel(false);
 
         NumberPicker npProjector = (NumberPicker) rootView.findViewById(R.id.numberPickerProjector);
-        npProjector.setMaxValue(9);
+        npProjector.setMaxValue(5);
         npProjector.setMinValue(0);
-        npProjector.setWrapSelectorWheel(false);
 
         NumberPicker npTV = (NumberPicker) rootView.findViewById(R.id.numberPickerTV);
-        npTV.setMaxValue(9);
+        npTV.setMaxValue(5);
         npTV.setMinValue(0);
-        npTV.setWrapSelectorWheel(false);
 
         DatePicker dpStart = (DatePicker) rootView.findViewById(R.id.datePicker);
         dpStart.setCalendarViewShown(false);

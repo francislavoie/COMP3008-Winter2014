@@ -7,12 +7,12 @@
     android:layout_height="wrap_content">
 
     <View
-        android:id="@+id/shiftBorder"
+        android:id="@+id/bookingBorder"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <View
-        android:id="@+id/shiftBody"
+        android:id="@+id/bookingBody"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp" />

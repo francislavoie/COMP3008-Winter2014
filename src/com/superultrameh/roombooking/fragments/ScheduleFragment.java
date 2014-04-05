@@ -224,8 +224,8 @@ public class ScheduleFragment extends Fragment {
 //        v.findViewById(R.id.shiftBody).setBackgroundColor(
 //                booking.getState().getOwnBackgroundPaint().getColor());
 
-        v.findViewById(R.id.shiftBorder).setBackgroundColor(0xFF000000);
-        v.findViewById(R.id.shiftBody).setBackgroundColor(0xFFAA2020);
+        v.findViewById(R.id.bookingBorder).setBackgroundColor(0xFF000000);
+        v.findViewById(R.id.bookingBody).setBackgroundColor(0xFFAA2020);
 
         // set button listener
         Button button = (Button) v.findViewById(R.id.button);

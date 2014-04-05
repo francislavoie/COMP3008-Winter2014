@@ -60,22 +60,20 @@
                 android:layout_gravity="center_horizontal|left">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/searchBuilding"
                     android:id="@+id/building_text"
-                    android:layout_weight=".5"
-                    android:autoText="true"
                     android:gravity="center_vertical|center_horizontal"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp" />
 
                 <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/spinnerBuilding"
-                    android:layout_weight=".8"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
                  />
 
@@ -90,33 +88,27 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
                     android:id="@+id/linearLayout2"
                     android:layout_weight="1"
                     android:layout_gravity="center_horizontal" >
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="140dp"
                         android:layout_height="match_parent"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/searchRoomNum"
                         android:id="@+id/rooom_text"
-                        android:layout_weight=".5"
-                        android:autoText="true"
                         android:gravity="center_vertical|center_horizontal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp" />
 
                     <Spinner
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:id="@+id/spinnerRoomNumber"
-                        android:layout_weight=".80"
-                        android:clickable="true"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="center"
-                        android:visibility="visible"
-                        android:showDividers="beginning|middle|end" />
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -145,7 +137,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/searchStartTime"
                             android:id="@+id/checkBoxSearchStart"
-                            android:layout_gravity="center" />
+                            android:layout_gravity="center_horizontal"/>
 
                         <RelativeLayout
                             android:orientation="horizontal"
@@ -199,8 +191,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/searchEndTime"
                         android:id="@+id/checkBoxSearchEnd"
-                        android:layout_gravity="center"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:layout_gravity="center_horizontal"/>
 
                     <RelativeLayout
                         android:orientation="horizontal"
