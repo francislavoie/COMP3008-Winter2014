@@ -9,7 +9,6 @@ import java.util.List;
  */
 public class Room {
     private Integer roomNumber;
-    private Integer minCapacity;
     private Integer blackboard;
     private Integer whiteboard;
     private Boolean tablesMove;
@@ -22,11 +21,10 @@ public class Room {
     private Integer capacity;
     private List<AvailableTime> availableTimes;
 
-    public Room(Integer roomNumber, Integer minCapacity, Integer blackboard, Integer whiteboard, Boolean tablesMove,
+    public Room(Integer roomNumber, Integer blackboard, Integer whiteboard, Boolean tablesMove,
                 Boolean chairsMove, Integer tv, Integer projector, Integer table, Integer chair, Integer outlet,
                 Integer capacity, List<AvailableTime> availableTimes) {
         this.roomNumber = roomNumber;
-        this.minCapacity = minCapacity;
         this.blackboard = blackboard;
         this.whiteboard = whiteboard;
         this.tablesMove = tablesMove;
@@ -40,8 +38,7 @@ public class Room {
         this.availableTimes = availableTimes;
     }
     public Room(Integer roomNumber, Integer tv, Integer projector,
-                Integer table, Integer chair, Integer outlet, Integer capacity,
-                Integer minCapacity, Integer blackboard, Integer whiteboard,
+                Integer table, Integer chair, Integer outlet, Integer capacity, Integer blackboard, Integer whiteboard,
                 Boolean tablesMove, Boolean chairsMove) {
         this.roomNumber = roomNumber;
         this.tv = tv;
@@ -50,7 +47,6 @@ public class Room {
         this.chair = chair;
         this.outlet = outlet;
         this.capacity = capacity;
-        this.minCapacity = minCapacity;
         this.blackboard = blackboard;
         this.whiteboard = whiteboard;
         this.tablesMove = tablesMove;
@@ -65,7 +61,6 @@ public class Room {
         this.chair = 0;
         this.outlet = 0;
         this.capacity = 0;
-        this.minCapacity = 0;
         this.blackboard = 0;
         this.whiteboard = 0;
         this.tablesMove = false;
@@ -129,14 +124,6 @@ public class Room {
         this.capacity = capacity;
     }
 
-    public Integer getMinCapacity() {
-        return minCapacity;
-    }
-
-    public void setMinCapacity(Integer minCapacity) {
-        this.minCapacity = minCapacity;
-    }
-
     public Integer getBlackboard() {
         return blackboard;
     }
@@ -196,7 +183,6 @@ public class Room {
 
         //if attribute is 0 or null dont check it, if value passed make sure that it equal or more then requested
         if (roomNumber != null && roomNumber != 0){if (roomNumber != this.roomNumber){return false;}}
-        if (minCapacity != null && minCapacity != 0){if (minCapacity > this.minCapacity){return false;}}
         if (blackboard != null && blackboard != 0){if (blackboard > this.blackboard){return false;}}
         if (whiteboard != null && whiteboard != 0){if (whiteboard > this.whiteboard){return false;}}
         if (tablesMove != null){if (tablesMove != this.tablesMove){return false;}}

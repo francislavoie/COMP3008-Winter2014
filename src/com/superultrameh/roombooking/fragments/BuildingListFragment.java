@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.adapters.ExpandableListAdapter;
 import com.superultrameh.roombooking.data.BuildingRoomList;
-import com.superultrameh.roombooking.dialogs.BookingFromScheduleDialog;
+import com.superultrameh.roombooking.dialogs.RoomDetailsDialog;
 import com.superultrameh.roombooking.model.Building;
 import com.superultrameh.roombooking.model.Room;
 
@@ -89,12 +89,10 @@ public class BuildingListFragment extends Fragment {
             expListView.setAdapter(listAdapter);
             expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
-                public boolean onChildClick(ExpandableListView parent, View v,
-                                            int groupPosition, int childPosition, long id) {
-                    final String selected = (String) listAdapter.getChild(
-                            groupPosition, childPosition);
+                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                    final String selected = (String) listAdapter.getChild(groupPosition, childPosition);
 
-                    BookingFromScheduleDialog dialog = new BookingFromScheduleDialog(BuildingListFragment.this.getActivity(), null);
+                    RoomDetailsDialog dialog = new RoomDetailsDialog(getActivity(), groupPosition, childPosition);
                     dialog.show();
 
                     return true;

@@ -42,7 +42,7 @@ public class BuildingRoomList {
             List<Room> rooms = new ArrayList<Room>();
             for (int i = 0; i < 10; i++) {
                 Room r = new Room(ranNum(100, 600), ranNum(0,1), ranNum(0,1), ranNum(2,8), ranNum(10, 100),
-                        ranNum(0, 15), ranNum(20, 150), ranNum(3, 10), ranNum(0, 4), ranNum(0, 3), 1==ranNum(0,1), 1==ranNum(0,1));
+                        ranNum(0, 15), ranNum(20, 150), ranNum(3, 10), ranNum(0, 3), 1==ranNum(0,1), 1==ranNum(0,1));
 
                 //generate 5 random available dates
                 //range between 8:00 to 24:00 hours and between mar 30 - apr 5
