@@ -73,24 +73,17 @@ public class StaffFragment extends Fragment implements ActionBar.TabListener {
 
 	private class StaffPagerAdapter extends FragmentPagerAdapter {
 
-		private StaffListFragment[] mPages;
 		private FragmentManager fm;
 
 		public StaffPagerAdapter(FragmentManager fm) {
 			super(fm);
 			Log.d(null, "StaffPagerAdapter()");
-			mPages = new StaffListFragment[getCount()];
-			for (int i = 0; i < getCount(); i++)
-				mPages[i] = null;
 			this.fm = fm;
 		}
 
 		@Override
 		public Fragment getItem(int i) {
 			Log.d(null, "getItem()");
-//			mPages[i] = new StaffListFragment();
-//			mPages[i].setListType(i);
-//			return mPages[i];
 
             switch (i) {
                 case 0:
