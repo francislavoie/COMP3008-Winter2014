@@ -34,4 +34,12 @@ public class Building {
         name = "";
         rooms = new ArrayList<Room>();
     }
+
+    public List<String> getRoomNumbers() {
+        ArrayList<String> numbers = new ArrayList<String>();
+        for(Room r : rooms) {
+            numbers.add("" + r.getRoomNumber());
+        }
+        return numbers;
+    }
 }

@@ -6,27 +6,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
-import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
 import com.superultrameh.roombooking.model.AvailableTime;
-import com.superultrameh.roombooking.model.Building;
-import com.superultrameh.roombooking.model.Room;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by becky on 4/1/2014.
  */
-public class SearchFragment extends Fragment{
+public class SearchFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -47,6 +41,8 @@ public class SearchFragment extends Fragment{
     private Integer outlet;
     private Integer capacity;
     private AvailableTime startEndTime;
+
+    private View rootView;
 
     public static SearchFragment newInstance(String param1, String param2) {
         SearchFragment fragment = new SearchFragment();
@@ -71,22 +67,23 @@ public class SearchFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+        rootView = inflater.inflate(R.layout.fragment_search, container, false);
         String[] listYesNo=new String[2];
         listYesNo[1] = "Yes";
         listYesNo[0] = "No";
 
         Spinner spinnerBuilding = (Spinner) rootView.findViewById(R.id.spinnerBuilding);
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
-                (getActivity(), android.R.layout.simple_spinner_item,BuildingRoomList.instance().getBuildingNames());
-        dataAdapter.setDropDownViewResource
-                (android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingNames());
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBuilding.setAdapter(dataAdapter);
+        spinnerBuilding.setOnItemSelectedListener(this);
 
-        final NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);
-        npRoomNumber.setMaxValue(9);
-        npRoomNumber.setMinValue(0);
-        npRoomNumber.setWrapSelectorWheel(false);
+        Spinner spinnerRoomNumber = (Spinner) rootView.findViewById(R.id.spinnerRoomNumber);
+        ArrayAdapter<String> roomAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(0).getRoomNumbers());
+        roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRoomNumber.setAdapter(roomAdapter);
 
         NumberPicker npBlackboards = (NumberPicker) rootView.findViewById(R.id.numberPickerBlackboards);
         npBlackboards.setMaxValue(9);
@@ -176,9 +173,20 @@ public class SearchFragment extends Fragment{
 
 
     }
-{
 
 
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        Spinner spinnerRoomNumber = (Spinner) rootView.findViewById(R.id.spinnerRoomNumber);
+        ArrayAdapter<String> roomAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(pos).getRoomNumbers());
+        roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRoomNumber.setAdapter(roomAdapter);
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
     }
 
 

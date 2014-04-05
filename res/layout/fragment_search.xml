@@ -62,7 +62,7 @@
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:id="@+id/spinnerBuilding"
-                    android:layout_weight="1"
+                    android:layout_weight=".8"
                     android:gravity="center_horizontal"
                  />
 
