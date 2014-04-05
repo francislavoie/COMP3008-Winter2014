@@ -1,7 +1,9 @@
 package com.superultrameh.roombooking.fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
@@ -20,8 +22,10 @@ import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.adapters.ExpandableListAdapter;
 import com.superultrameh.roombooking.data.BookingsList;
 import com.superultrameh.roombooking.data.BuildingRoomList;
+import com.superultrameh.roombooking.dialogs.BookingDialog;
 import com.superultrameh.roombooking.dialogs.StaffDetailDialog;
 import com.superultrameh.roombooking.model.AvailableTime;
+import com.superultrameh.roombooking.model.Booking;
 import com.superultrameh.roombooking.model.Building;
 import com.superultrameh.roombooking.model.Room;
 
@@ -106,8 +110,8 @@ public class BuildingListFragment extends Fragment {
                     final String selected = (String) listAdapter.getChild(
                             groupPosition, childPosition);
 
-                    StaffDetailDialog dialog = new StaffDetailDialog(BuildingListFragment.this.getActivity());
-                    dialog.show();
+                    DialogFragment dialog = new BookingDialog();
+                    dialog.show(getChildFragmentManager(), "");
 
                     return true;
                 }

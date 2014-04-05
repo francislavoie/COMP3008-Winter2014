@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="250dp"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
@@ -14,41 +14,32 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/searchStartTime"
-            android:id="@+id/textView"
-            android:layout_gravity="center" />
-
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/timePicker" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/searchEndTime"
             android:id="@+id/textView2"
             android:layout_gravity="center" />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="350dp"
+            android:layout_height="100dp">
 
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/timePicker2" />
+
+            <DatePicker
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:scaleX="0.7"
+                android:id="@+id/datePickerBook"
+                android:calendarViewShown="false"
+                android:layout_marginLeft="-40dp" />
+
+            <TimePicker
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:id="@+id/timePickerBook"
+                android:scaleX="0.7"
+                android:layout_marginTop="0dp"
+
+                android:layout_marginLeft="125dp" />
+        </RelativeLayout>
+
     </LinearLayout>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#AA2020"
-        android:text="@string/dialogBook"
-        android:id="@+id/button"
-        android:textColor="#ffffff"
-        android:textSize="23dp" />
 </LinearLayout>
