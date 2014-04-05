@@ -82,10 +82,11 @@ public class SearchFragment extends Fragment{
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBuilding.setAdapter(dataAdapter);
 
-        final NumberPicker npRoomNumber = (NumberPicker) rootView.findViewById(R.id.numberPickerRoomNumber);
-        npRoomNumber.setMaxValue(9);
-        npRoomNumber.setMinValue(0);
-        npRoomNumber.setWrapSelectorWheel(false);
+        Spinner spinnerRoomNumber = (Spinner) rootView.findViewById(R.id.spinnerRoomNumber);
+        ArrayAdapter<String> roomAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(0).getRoomNumbers());
+        roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRoomNumber.setAdapter(roomAdapter);
 
         NumberPicker npBlackboards = (NumberPicker) rootView.findViewById(R.id.numberPickerBlackboards);
         npBlackboards.setMaxValue(9);
