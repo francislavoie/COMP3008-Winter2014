@@ -85,6 +85,22 @@
     <string name="searchStartTime">Start Time</string>
     <string name="searchEndTime">End Time</string>
 
-<string name="dialogBook">Book</string>
+<string name="dialogBook">Book for 1 Hour</string>
+    <string name="dialogAvailTime">Available Times</string>
 
+    <string-array name="building_arrays">
+        <item>Architecture Building (AA)")</item>
+        <item>Azrieli Pavillion and Theatre (AT)</item>
+        <item>Dunton Tower (DT)</item>
+        <item>Herzberg Laboratories (HP)</item>
+        <item>Loeb Building (LA)</item>
+        <item>Mackenzie Building (ME)</item>
+        <item>MacOdrum Library (ML)</item>
+        <item>Minto Centre (MC)</item>
+        <item>Southam Hall (SA)</item>
+        <item>"St. Patrick’s Building (SP)</item>
+        <item>Steacie Building (SC)</item>
+        <item>Tory Building (TB)</item>
+        <item>University Centre (UC)</item>
+    </string-array>
 </resources>
