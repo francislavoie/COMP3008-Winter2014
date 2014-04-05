@@ -28,29 +28,30 @@ public class BookingFromScheduleDialog extends Dialog {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.booking_dialog);
+        if(time != null) {
+            TimePicker startPicker = (TimePicker) findViewById(R.id.timePicker);
+            TimePicker endPicker = (TimePicker) findViewById(R.id.timePicker2);
 
-        TimePicker startPicker = (TimePicker) findViewById(R.id.timePicker);
-        TimePicker endPicker = (TimePicker) findViewById(R.id.timePicker2);
+            Calendar start = GregorianCalendar.getInstance(), end = GregorianCalendar.getInstance();
+            start.setTime(time.getStartDateTime());
+            end.setTime(time.getEndDateTime());
 
-        Calendar start = GregorianCalendar.getInstance(), end = GregorianCalendar.getInstance();
-        start.setTime(time.getStartDateTime());
-        end.setTime(time.getEndDateTime());
+            startPicker.setCurrentHour(start.get(Calendar.HOUR_OF_DAY));
+            startPicker.setCurrentMinute(start.get(Calendar.MINUTE));
 
-        startPicker.setCurrentHour(start.get(Calendar.HOUR_OF_DAY));
-        startPicker.setCurrentMinute(start.get(Calendar.MINUTE));
+            endPicker.setCurrentHour(end.get(Calendar.HOUR_OF_DAY));
+            endPicker.setCurrentMinute(end.get(Calendar.MINUTE));
 
-        endPicker.setCurrentHour(end.get(Calendar.HOUR_OF_DAY));
-        endPicker.setCurrentMinute(end.get(Calendar.MINUTE));
-
-        startPicker.setOnTimeChangedListener(TimeChangedListener);
-        endPicker.setOnTimeChangedListener(TimeChangedListener);
+            startPicker.setOnTimeChangedListener(TimeChangedListener);
+            endPicker.setOnTimeChangedListener(TimeChangedListener);
+        }
 	}
 
     private TimePicker.OnTimeChangedListener TimeChangedListener =
         new TimePicker.OnTimeChangedListener() {
 
         public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-            updateDisplay(view, hourOfDay, minute);
+            if(time != null) {updateDisplay(view, hourOfDay, minute); }
         }
     };
 
