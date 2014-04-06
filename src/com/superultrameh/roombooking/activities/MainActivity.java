@@ -6,6 +6,8 @@ import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.text.format.Time;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -53,6 +55,10 @@ public class MainActivity extends Activity {
 
         // Build all the data at the start of the session
         BuildingRoomList.instance();
+
+        Time t = new Time();
+        t.setToNow();
+        Log.d(null, "APP STARTED: " + t.format("%H:%M:%S"));
 	}
 	
 	private void initSections() {

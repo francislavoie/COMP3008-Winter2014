@@ -3,7 +3,11 @@ package com.superultrameh.roombooking.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TimePicker;
 
 import com.superultrameh.roombooking.R;
@@ -54,6 +58,20 @@ public class BookingFromScheduleDialog extends Dialog {
 
             startPicker.setOnTimeChangedListener(TimeChangedListener);
             endPicker.setOnTimeChangedListener(TimeChangedListener);
+
+            Button button = (Button) findViewById(R.id.button);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TimePicker startPicker = (TimePicker) findViewById(R.id.timePicker);
+                    TimePicker endPicker = (TimePicker) findViewById(R.id.timePicker2);
+
+                    Time t = new Time();
+                    t.setToNow();
+                    Log.d(null, "BOOKING DIALOG COMPLETED: " + t.format("%H:%M:%S") + ", PICKED TIME: Start " + startPicker.getCurrentHour() + ":" + startPicker.getCurrentMinute() + ", End " + endPicker.getCurrentHour() + ":" + endPicker.getCurrentMinute());
+                }
+            });
+
         }
 	}
 

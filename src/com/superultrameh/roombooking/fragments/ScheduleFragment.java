@@ -3,6 +3,8 @@ package com.superultrameh.roombooking.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,6 +91,10 @@ public class ScheduleFragment extends Fragment {
                         android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(position).getRoomNumbers());
                 roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerRoomNumber.setAdapter(roomAdapter);
+
+                Time t = new Time();
+                t.setToNow();
+                Log.d(null, "BOOKING BUILDING CHANGED: " + t.format("%H:%M:%S") + ", BLD: " + BuildingRoomList.instance().getBuildingList().get(position).getName());
             }
 
             @Override
@@ -126,6 +132,10 @@ public class ScheduleFragment extends Fragment {
                     duration = minutesDiff(startTime.getTime(), endTime.getTime());
                     min = Math.min(min, makeBooking(dayOfWeek, start / 2, duration / 2, booking));
                 }
+
+                Time t = new Time();
+                t.setToNow();
+                Log.d(null, "BOOKING ROOM CHANGED: " + t.format("%H:%M:%S") + ", ROOM: " + BuildingRoomList.instance().getBuildingList().get(buildingID).getRooms().get(position).getRoomNumber());
 
             }
 
@@ -213,6 +223,15 @@ public class ScheduleFragment extends Fragment {
             public void onClick(View v) {
                 BookingFromScheduleDialog dialog = new BookingFromScheduleDialog(getActivity(), booking);
                 dialog.show();
+
+
+                Calendar startTime = new GregorianCalendar(), endTime = new GregorianCalendar();
+                startTime.setTime(booking.getStartDateTime());
+                endTime.setTime(booking.getEndDateTime());
+
+                Time t = new Time();
+                t.setToNow();
+                Log.d(null, "BOOKING DIALOG OPENED: " + t.format("%H:%M:%S") + ", AVAILABLETIME: Day " + startTime.get(Calendar.DAY_OF_MONTH) + ", Hour: " + startTime.get(Calendar.HOUR));
             }
         });
 

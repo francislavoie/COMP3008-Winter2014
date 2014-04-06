@@ -56,14 +56,14 @@ public class BuildingRoomList {
                     Integer startTimeHour = ranNum(8, 17);
                     Integer endTimeHour = ranNum(18,23);
                     Integer endTimeMin = ranNum(0,3)*15;
-                    Integer day = (d == 0) ? ranNum(30,31) : ranNum(1,4);
-                    avTime.setStartTime(2014, (day < 5) ? 04 : 03, day, startTimeHour, startTimeMin);
-                    avTime.setEndTime(2014, (day < 5) ? 04 : 03, day, endTimeHour, endTimeMin);
+                    Integer day = (dayofweek < 2) ? dayofweek + 30 : dayofweek - 1;
+                    avTime.setStartTime(2014, (dayofweek < 2) ? 03 : 04, day, startTimeHour, startTimeMin);
+                    avTime.setEndTime(2014, (dayofweek < 2) ? 03 : 04, day, endTimeHour, endTimeMin);
                     r.addAvailableTime(avTime);
                 }
                 rooms.add(r);
             }
-            buildingList.add(new Building(buildingNames.get(b),rooms ));
+            buildingList.add(new Building(buildingNames.get(b), rooms));
         }
 
     }

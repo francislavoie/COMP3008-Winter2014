@@ -3,6 +3,8 @@ package com.superultrameh.roombooking.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +87,10 @@ public class BuildingListFragment extends Fragment {
 
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     final String selected = (String) listAdapter.getChild(groupPosition, childPosition);
+
+                    Time t = new Time();
+                    t.setToNow();
+                    Log.d(null, "ROOM DETAILS OPENED: " + t.format("%H:%M:%S") + ", BLD: " + groupPosition + ", ROOM: " + childPosition);
 
                     RoomDetailsDialog dialog = new RoomDetailsDialog(getActivity(), groupPosition, childPosition);
                     dialog.show();

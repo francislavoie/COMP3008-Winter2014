@@ -8,7 +8,6 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,8 +81,6 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 
 		@Override
 		public Fragment getItem(int i) {
-			Log.d(null, "getItem()");
-
             switch (i) {
                 case 0:
                     return BuildingListFragment.newInstance();
@@ -121,8 +118,6 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 
 		public void clear(ViewGroup container) {
 
-			Log.d(null, "CLEARING PAGES");
-
 			FragmentTransaction ft = fm.beginTransaction();
 
 			for (int i = 0; i < getCount(); i++) {
@@ -134,7 +129,6 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 				Fragment fragment = fm.findFragmentByTag(name);
 
 				if (fragment != null) {
-					Log.d(null, "FRAGMENT DETACHED");
 					ft.detach(fragment);
 				}
 			}

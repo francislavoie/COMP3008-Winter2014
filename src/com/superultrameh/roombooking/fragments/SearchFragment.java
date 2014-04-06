@@ -2,6 +2,8 @@ package com.superultrameh.roombooking.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -166,6 +168,10 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                         blackboard, whiteboard, tablesMove, chairsMove, tv, projector, table, chair, outlet, capacity, startEndTime);
               //  BookingFromScheduleDialog dialog = new BookingFromScheduleDialog(SearchFragment.this.getActivity());
                // dialog.show();*/
+
+                Time t = new Time();
+                t.setToNow();
+                Log.d(null, "SEARCH COMPLETED: " + t.format("%H:%M:%S"));
             }
         });
         return rootView;
@@ -180,6 +186,10 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 android.R.layout.simple_spinner_item, BuildingRoomList.instance().getBuildingList().get(pos).getRoomNumbers());
         roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRoomNumber.setAdapter(roomAdapter);
+
+        Time t = new Time();
+        t.setToNow();
+        Log.d(null, "SEARCH BUILDING CHANGED: " + t.format("%H:%M:%S") + ", BLD: " + BuildingRoomList.instance().getBuildingList().get(pos).getName());
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
