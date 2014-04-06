@@ -12,6 +12,16 @@ import com.superultrameh.roombooking.model.AvailableTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * Worked on by Becky and Francis
+ *
+ * This dialog allows for picking a time range within the available time range.
+ * For example, an available time is between 2:30pm and 7:30pm, the user could pick to book
+ * from 2:30pm to 5:00pm, or 4:00pm to 6:00pm, etc. If the user attempts to choose a time outside
+ * of the allowed range defined by the given AvailableTime object, it will reset back to the
+ * limit. The start of the AvailableTime becomes the minimum and the end becomes the maximum.
+ */
+
 public class BookingFromScheduleDialog extends Dialog {
 
     private AvailableTime time;
@@ -84,6 +94,7 @@ public class BookingFromScheduleDialog extends Dialog {
             }
         }
 
+        // Prevent infinite loop of events by removing the listener before adjusting
         timePicker.setOnTimeChangedListener(NullTimeChangedListener);
         timePicker.setCurrentMinute(adjustedMinute);
         timePicker.setCurrentHour(adjustedHour);

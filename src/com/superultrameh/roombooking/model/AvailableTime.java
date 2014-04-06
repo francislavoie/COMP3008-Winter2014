@@ -1,14 +1,15 @@
 package com.superultrameh.roombooking.model;
 
-import android.text.format.Time;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by becky on 3/31/2014.
+ * Worked on by Becky and Francis
+ *
+ * Manages a start and end time range for which a room is available to be booked.
+ * Has a setter function for simpler usage using integers for the time values.
  */
 public class AvailableTime {
     private Date startDateTime;

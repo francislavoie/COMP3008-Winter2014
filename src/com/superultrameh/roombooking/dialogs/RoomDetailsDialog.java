@@ -10,6 +10,15 @@ import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
 import com.superultrameh.roombooking.model.Room;
 
+/**
+ * Worked on by Becky and Francis
+ *
+ * Displays the properties of one specific room. Takes a building ID (position in the ArrayList)
+ * and room ID (position in the ArrayList of rooms in the building) to get the relevant room, then
+ * displays the information using the room_details_dialog layout.
+ *
+ */
+
 public class RoomDetailsDialog extends Dialog {
 
     private int buildingId, roomId;

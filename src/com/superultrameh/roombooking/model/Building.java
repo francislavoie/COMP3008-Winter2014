@@ -3,6 +3,13 @@ package com.superultrameh.roombooking.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Worked on by Becky and Francis
+ *
+ * Holds the name of a Building and a list of all the Rooms that can be booked.
+ * Has a function to simplify retrieving a list of room numbers for the various spinners in the app.
+ */
+
 public class Building {
     private String name;
     private List<Room> rooms;

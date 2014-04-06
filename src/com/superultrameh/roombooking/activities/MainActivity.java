@@ -5,8 +5,6 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,24 +17,25 @@ import com.superultrameh.roombooking.R;
 import com.superultrameh.roombooking.data.BuildingRoomList;
 import com.superultrameh.roombooking.fragments.PagerFragment;
 
+/**
+ * Worked on by Becky and Francis
+ *
+ * Main entry point of the app.
+ *
+ * Has a bunch of legacy Navigation Drawer code from the demo code it was based on, modified to
+ * hide the drawer because we decided to use a tab view for navigation instead.
+ *
+ * Also sets up the Action Bar, title and logo for the app.
+ */
+
 public class MainActivity extends Activity {
 
 	// current list of drawer item constants
-	private static final int FRAGMENT_NONE = -1;
-	private static final int FRAGMENT_STAFF = 0;
-	private static final int FRAGMENT_TRADE = 1;
-	private static final int FRAGMENT_APPROVE = 2;
-	private static final int FRAGMENT_MESSAGE = 3;
-	private static final int FRAGMENT_ALERT = 4;
-	private static final int FRAGMENT_SETTINGS = 5;
 	
 	// layout objects
 	private DrawerLayout mDrawerLayout;
-	private ListView mDrawerList;
-	private ActionBarDrawerToggle mDrawerToggle;
 	
 	// drawer variables
-	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	private String[] mSectionTitles;
 	private int mPosition;
@@ -58,23 +57,18 @@ public class MainActivity extends Activity {
 	
 	private void initSections() {
 		// initialize fragments
-		mSections = new Fragment[6];
+		mSections = new Fragment[1];
 		mSections[0] = new PagerFragment();
 	}
 	
 	private void initDrawer(Bundle savedInstanceState) {
 		
 		// setup titles
-		mTitle = mDrawerTitle = getTitle();
+		mTitle = getTitle();
 		mSectionTitles = new String[6];
 
 		// find layout objects in xml
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-		// set drawer shadow
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
 		// set up the drawer's list view with items and click listener
 //		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
@@ -105,8 +99,8 @@ public class MainActivity extends Activity {
 //		mDrawerLayout.setDrawerListener(mDrawerToggle);
 		
 		if (savedInstanceState == null) {
-			mPosition = FRAGMENT_NONE;
-			selectItem(FRAGMENT_STAFF, false);
+			mPosition = -1;
+			selectItem(0, false);
 		}
 		
 		// TODO: update app data
@@ -160,7 +154,7 @@ public class MainActivity extends Activity {
 	public void onBackPressed() {
 		super.onBackPressed();
 		// if about to exit app
-		if (mPosition == FRAGMENT_STAFF) {
+		if (mPosition == 0) {
 			finish();
 		} else {
 			// correct the current position and redraw the menu
@@ -208,6 +202,6 @@ public class MainActivity extends Activity {
 			if (mSections[i].isAdded())
 				return i;
 		}
-		return FRAGMENT_NONE;
+		return -1;
 	}
 }

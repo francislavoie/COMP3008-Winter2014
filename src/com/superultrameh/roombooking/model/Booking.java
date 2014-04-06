@@ -1,7 +1,10 @@
 package com.superultrameh.roombooking.model;
 
 /**
- * Created by becky on 4/1/2014.
+ * Worked on by Becky and Francis
+ *
+ * Holds the information pertaining to a room booking. Has the building, room, and time range
+ * that the room is booked.
  */
 public class Booking {
     private Building building;

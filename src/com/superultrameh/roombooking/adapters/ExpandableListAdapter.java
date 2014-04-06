@@ -8,11 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.superultrameh.roombooking.R;
+
 import java.util.HashMap;
 import java.util.List;
-import com.superultrameh.roombooking.R;
 /**
  * Created by becky on 4/2/2014.
+ *
+ * Adapter for displaying lists of data with expandable children.
+ * Used for displaying a list of Buildings and expanding each to reveal the Room within each.
  */
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 

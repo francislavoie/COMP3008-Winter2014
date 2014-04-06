@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by becky on 4/1/2014.
+ * Worked on by Becky and Francis
+ *
+ * Used to store all the room bookings done by the user.
  */
 public class BookingsList {
     List<Booking> bookings;

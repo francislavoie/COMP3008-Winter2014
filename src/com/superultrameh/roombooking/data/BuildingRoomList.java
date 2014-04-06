@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by becky on 4/1/2014.
+ * Worked on by Becky and Francis
+ *
+ * Encapsulates all of the Building and Room information, implemented as a singleton to be
+ * available everywhere within the app via the instance() function.
  */
 public class BuildingRoomList {
 

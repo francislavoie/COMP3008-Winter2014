@@ -1,6 +1,5 @@
 package com.superultrameh.roombooking.fragments;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,14 +17,15 @@ import com.superultrameh.roombooking.data.BuildingRoomList;
 import com.superultrameh.roombooking.model.AvailableTime;
 
 /**
- * Created by becky on 4/1/2014.
+ * Worked on by Becky and Francis
+ *
+ * Fragment which displays the various search options for finding
+ * a room based on the room parameters and the available times.
+ *
+ * Currently does not run the search, but only has the search parameters.
+ *
  */
 public class SearchFragment extends Fragment implements AdapterView.OnItemSelectedListener {
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
 
     private String buildingName;
     private Integer roomNumber;
@@ -44,11 +44,9 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
     private View rootView;
 
-    public static SearchFragment newInstance(String param1, String param2) {
+    public static SearchFragment newInstance() {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,8 +58,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
     @Override
@@ -173,8 +169,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             }
         });
         return rootView;
-
-
     }
 
 
@@ -190,24 +184,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
-    }
-
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-//        try {
-//            mListener = (OnFragmentInteractionListener) activity;
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException(activity.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-//        mListener = null;
     }
 
 }

@@ -14,12 +14,12 @@
         <!--android:textColor="#555555" />-->
 
     <com.superultrameh.util.PagerSlidingTabStrip
-        android:id="@+id/staffPagerTabs"
+        android:id="@+id/pagerTabs"
         android:layout_width="match_parent"
         android:layout_height="48dp" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/staffPager"
+        android:id="@+id/pager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
     </android.support.v4.view.ViewPager>

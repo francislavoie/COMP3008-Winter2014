@@ -16,6 +16,15 @@ import android.view.ViewGroup;
 import com.superultrameh.roombooking.R;
 import com.superultrameh.util.PagerSlidingTabStrip;
 
+/**
+ * Worked on by Becky and Francis
+ *
+ * Main application Fragment which has the Tab Navigation management.
+ *
+ * Creates the relevant fragments for each tab and allows for swiping to change page or pressing
+ * the tab to go to a specific section of the app.
+ */
+
 public class PagerFragment extends Fragment implements ActionBar.TabListener {
 
 	ViewPager mPager;
@@ -26,21 +35,13 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
 
-		// setup date
-//		TextView dateText = (TextView) rootView.findViewById(R.id.staffDate);
-//		long date = System.currentTimeMillis();
-//		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy ", Locale.getDefault());
-//		String dateString = sdf.format(date);
-//		dateText.setText(dateString);
-		
 		// setup pager and adapter
 		mAdapter = new PagerAdapter(getFragmentManager());
-		mPager = (ViewPager) rootView.findViewById(R.id.staffPager);
+		mPager = (ViewPager) rootView.findViewById(R.id.pager);
 		mPager.setAdapter(mAdapter);
 
 		// bind the tabs to the pager
-		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) rootView
-				.findViewById(R.id.staffPagerTabs);
+		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) rootView.findViewById(R.id.pagerTabs);
 		tabs.setIndicatorColor(getActivity().getResources().getColor(R.color.HEADER_BLUE));
 		tabs.setViewPager(mPager);
 
@@ -59,8 +60,7 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		for (int i = 0; i < mAdapter.getCount(); i++) {
-			actionBar.addTab(actionBar.newTab()
-					.setText(mAdapter.getPageTitle(i)).setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText(mAdapter.getPageTitle(i)).setTabListener(this));
 		}
 	}
 
@@ -86,13 +86,13 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 
             switch (i) {
                 case 0:
-                    return BuildingListFragment.newInstance("","");
+                    return BuildingListFragment.newInstance();
                 case 1:
-                    return MapsFragment.newInstance("Test1", "Test2");
+                    return MapsFragment.newInstance();
                 case 2:
-                    return SearchFragment.newInstance("Test1", "Test2");
+                    return SearchFragment.newInstance();
                 case 3:
-                    return ScheduleFragment.newInstance("Test1", "Test2");
+                    return ScheduleFragment.newInstance();
                 default:
                     return null;
             }
@@ -107,17 +107,13 @@ public class PagerFragment extends Fragment implements ActionBar.TabListener {
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				return getActivity().getResources().getString(
-						R.string.label_home);
+				return getActivity().getResources().getString(R.string.label_home);
 			case 1:
-				return getActivity().getResources().getString(
-						R.string.label_map);
+				return getActivity().getResources().getString(R.string.label_map);
 			case 2:
-				return getActivity().getResources().getString(
-						R.string.label_search);
+				return getActivity().getResources().getString(R.string.label_search);
             case 3:
-                return getActivity().getResources().getString(
-                        R.string.label_bookings);
+                return getActivity().getResources().getString(R.string.label_bookings);
 			default:
 				return "";
 			}

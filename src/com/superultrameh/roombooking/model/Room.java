@@ -5,7 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by becky on 3/31/2014.
+ * Worked on by Becky and Francis
+ *
+ * Holds all the amenities of a Room along with the room number and all of the AvailableTimes.
+ * Has a comparison function used in searching for rooms that match the criteria required by the
+ * user.
  */
 public class Room {
     private Integer roomNumber;
